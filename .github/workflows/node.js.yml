@@ -14,7 +14,9 @@ jobs:
 
     runs-on: ubuntu-latest
     permissions:
-      contents: true
+      contents: write
+      pull-requests: write
+      deployments: write
     strategy:
       matrix:
         node-version: [18.x]
