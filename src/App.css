@@ -1,38 +1,387 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@700&family=Leckerli+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
+body {
+  font-family: Encode Sans Expanded;
+  margin:0
+}
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+
+
+.differnetFont{
+  font-family: Leckerli One
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+
+#banner {
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+  overflow: hidden;
+}
+#topsection {
+  height: 100vh;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+#bannertext1{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+.container{
+  padding-left:20px; 
+  padding-top:20px;
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.para{
+  font-weight: 500;
+  margin-top: 25px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.featureButtonwrapper{
+  margin-top:25px;
+  justify-content: space-between;
+}
+
+#topsection {
+  position: relative;
+  height: 100vh;
+}
+
+#topsection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#topsection.active::before {
+  opacity: 1;
+}
+
+
+#topsection::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top:20px;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.fetaureTicketButton{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 63px;
+  border-radius:64px;
+  padding:0px 15px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  font-weight: 600;
+  margin-top:20px;
+  background-color: #BFDAF7;
+}
+
+.featuredButton{
+  width:100%;
+  background-color: white;
+  margin-top:10px;
+  padding:10px;
+  border-radius: 15px;
+  justify-content: space-between;
+}
+
+.iconholder{
+  background-color: #BFDAF758;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+.featuredcard{
+  background: #BFDAF758;
+  padding:20px;
+  margin-right:20px;
+  border-radius: 20px;
+  margin-top:20px;
+  width:90%;
+}
+
+
+.speccard{
+  background: #BFDAF756;
+  padding:2px;
+  border-radius: 20px;
+  margin-right:20px;
+  width:100%;
+  flex: 0 0 27rem;
+  box-sizing: border-box;
+}
+
+
+.specseatf{
+  font-size: 12px;
+}
+
+.speceventf{
+  font-size: 12px;
+}
+
+.featuredImage{
+  width:100%;
+  height: 100%;
+  object-fit:cover;
+  border-radius: 15px;
+  margin-right: 20px
+}
+
+.imagewrapper {
+  width:19rem;
+  height:13.7rem;
+  margin-right:10px
+}
+
+#specevent{
+  display:flex
+}
+
+.specimgwrap{
+  height:13.7rem
+}
+
+.featuredHeading{
+  font-size:23px;
+  letter-spacing:2px;
+  font-weight:800;
+  width:100%;
+} 
+
+.featuredPrice{
+  font-size: 14px;
+}
+
+.feturedCardtop{
+  width:100%;
+  justify-content: space-between;
+}
+.featuredPrice{
+  font-weight:600
+}
+
+.featuredCard{
+  display:flex;
+  width: 100%;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.speceventsCard{
+  display:flex;
+  width: 100%;
+  margin-top: 20px;
+  overflow: scroll;
+}
+#bannertext2{
+  position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%); 
+}
+#bannertext1, #bannertext2 {
+    z-index: 1;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    font-family: kavoon;
+}
+
+.heading{
+  position:relative;
+  margin: 10px 0px;
+  padding-bottom: 20px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.heading::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left:0;
+  width:90px;
+  height: 3px;
+  border-radius: 20px;
+  background-color: #BFDAF7;
+}
+
+.subheading{
+  color: #BFDAF7;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: white;
+  right: 0;
+  z-index: 2;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.menu-toggle {
+  display: block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle:focus {
+  outline: none;
+}
+
+.menu-toggle i {
+  font-size: 24px;
+  color: #333;
+}
+
+.menu {
+  display: none;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+.menu li:last-child {
+  margin-bottom: 0;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 16px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.right-icons {
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.right-icons a {
+  margin-left: 20px;
+  color: white;
+}
+
+.right-icons i {
+  font-size: 20px;
+}
+
+
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.carousel{
+  border-radius: 20px;
+  width: 100%;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+.wrapper{
+  display: flex;
+}
+
+
+@media (min-width: 768px) {
+  .menu {
+    display: flex;
+    flex-direction: row;
   }
-  to {
-    transform: rotate(360deg);
+
+  .menu li {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .right-icons a {
+    margin-left: 40px;
   }
 }
