@@ -1,6 +1,4 @@
-# HYEV
-
-[Project description]
+# HYEV FRONTEND
 
 ## Prerequisites
 
