@@ -3,7 +3,7 @@ import Logo from '../assets/img/logo.png'
 
 const Footer = () => {
   return (
-    <div className='container' style={{position:'relative',height:'40vh',background:'linear-gradient(180deg, #FFFFFF 0%, #76ADFF 99.97%, rgba(191, 218, 247, 0) 99.98%)'}}>
+    <div className='container' style={{position:'relative',height:'40vh',marginTop:'20vh',background:'linear-gradient(180deg, #FFFFFF 0%, #76ADFF 99.97%, rgba(191, 218, 247, 0) 99.98%)'}}>
         <div style={{display:'flex',}}>
             <div className='logoHolder' style={{margin:'10px'}}>
                 <img className='footerLogo' src={Logo} alt="Logo" />

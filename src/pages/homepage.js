@@ -60,14 +60,14 @@ const Homepage = () => {
       </div>
     </section>
     <section className='container' id="specevents">
-    <div className="heading">FOR <span className="subheading">FOODIES</span></div>
+    <div className="heading">FOR <span className="subheading">SPORTS LOVERS</span></div>
       <div className="speceventsContainer">
       {/* {featuredEventData.map((item,index)=>(<Specificcard key={index} title={item.title} image={item.image} description={item.description} price={item.price} seats={item.seats} presenter={item.presenter} date={item.date} paid={item.paid}/>))} */}
       <SpecCarousel posts={featuredEventData} />
       </div>
     </section>
     <section className='container' id="specevents">
-    <div className="heading">FOR <span className="subheading">FOODIES</span></div>
+    <div className="heading">FOR <span className="subheading">TECH BEES</span></div>
       <div className="speceventsContainer">
       {/* {featuredEventData.map((item,index)=>(<Specificcard key={index} title={item.title} image={item.image} description={item.description} price={item.price} seats={item.seats} presenter={item.presenter} date={item.date} paid={item.paid}/>))} */}
       <SpecCarousel posts={featuredEventData} />
