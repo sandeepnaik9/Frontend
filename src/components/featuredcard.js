@@ -16,7 +16,7 @@ const Featuredcard = ({image,title,presenter,description,seats,date,price,paid})
     <div className="wrapper featuredcard">
         <div className="imagewrapper">
             {/* Image */}
-            <img className="featuredImage" src={image} alt="" />
+            <img className="featuredImage" src={image} alt="featuredImage" />
         </div>
         {/* Internal wrapper */}
         <div>
@@ -46,13 +46,13 @@ const Featuredcard = ({image,title,presenter,description,seats,date,price,paid})
                     <div className="wrapper featuredButton">
                         <div className="iconholder">
                             {/* Icon */}
-                            <img src={Ticket} alt="" />
+                            <img src={Ticket} alt="Ticket Icon" />
                         </div>
-                        <div>
+                        <div className="buttontext">
                             <div>
                             Max Seats                            
                             </div>
-                            <div>
+                            <div style={{fontWeight:'600',fontSize:'14px'}}>
                                 {seats} seats
                             </div>
                         </div>
@@ -60,14 +60,14 @@ const Featuredcard = ({image,title,presenter,description,seats,date,price,paid})
                     <div className="wrapper featuredButton">
                         <div className='iconholder'>
                             {/* Icon */}
-                            <img src={Calendar} alt="" />
+                            <img src={Calendar} alt="Calendar Icon" />
 
                         </div>
-                        <div>
+                        <div className="buttontext">
                             <div>
                             Event Date                            
                             </div>
-                            <div>
+                            <div style={{fontWeight:'600',fontSize:'14px'}}>
                                 {date}
                             </div>
                         </div>

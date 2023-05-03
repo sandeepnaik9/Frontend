@@ -100,12 +100,12 @@ body {
 }
 
 .featuredButton{
-  width:100%;
+  width:12rem;
   background-color: white;
-  margin-top:10px;
+  margin:10px;
   padding:10px;
   border-radius: 15px;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .iconholder{
@@ -121,6 +121,10 @@ body {
   border-radius: 20px;
   margin-top:20px;
   width:90%;
+}
+
+.buttontext{
+  margin-left:5px
 }
 
 
@@ -192,11 +196,9 @@ body {
   align-items: center;
   flex-direction: column;
 }
-.speceventsCard{
+.speceventsContainer{
   display:flex;
-  width: 100%;
   margin-top: 20px;
-  overflow: scroll;
 }
 #bannertext2{
   position: absolute;
@@ -384,4 +386,35 @@ nav {
   .right-icons a {
     margin-left: 40px;
   }
+}
+
+.posts{
+  display:flex;
+  justify-content: center;
+}
+
+
+.post{
+  width: calc(2.78%*10);
+  padding:20px;
+  background-color: #BFDAF7;
+  margin:10px;
+  border-radius:20px
+}
+
+.imageconatiner{
+  height:25vw;
+  border-radius:20px;
+  justify-content:'center';
+}
+
+.imagespec{
+  width: 100%;
+  height:100%;
+  object-fit: cover;
+}
+
+.SpecCarousel{
+  position:relative;
+  width:100%;
 }

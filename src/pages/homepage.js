@@ -14,7 +14,8 @@ import bgc5 from '../assets/img/bgc5.jpeg'
 import bgc6 from '../assets/img/bgc6.jpeg'
 import bgc7 from '../assets/img/bgc7.jpg'
 import featuredEventData from '../data/featuredEventdata'
-import Specificcard from '../components/specificcard';
+import SpecCarousel from '../components/thcarouse';
+import Footer from '../components/Footer';
 
 const Images = [Carousel1, Carousel2, Carousel3, Carousel4]
 const bgc = [bgc1,bgc2,bgc3,bgc4,bgc5,bgc6,bgc7]
@@ -42,7 +43,6 @@ const Homepage = () => {
     </section>
     <section className='container' id="upcomingevents">
       <div className="heading">UPCOMING <span className="subheading">EVENTS</span></div>
-      {console.log(Images)}
       <Carousel images={Images}/>
     </section>
     <section className='container' id="featuredevents">
@@ -54,11 +54,26 @@ const Homepage = () => {
     </section>
     <section className='container' id="specevents">
     <div className="heading">FOR <span className="subheading">FOODIES</span></div>
-      <div className="speceventsCard">
-      {featuredEventData.map((item,index)=>(<Specificcard key={index} title={item.title} image={item.image} description={item.description} price={item.price} seats={item.seats} presenter={item.presenter} date={item.date} paid={item.paid}/>))}
-      
+      <div className="speceventsContainer">
+      {/* {featuredEventData.map((item,index)=>(<Specificcard key={index} title={item.title} image={item.image} description={item.description} price={item.price} seats={item.seats} presenter={item.presenter} date={item.date} paid={item.paid}/>))} */}
+      <SpecCarousel posts={featuredEventData} />
       </div>
     </section>
+    <section className='container' id="specevents">
+    <div className="heading">FOR <span className="subheading">FOODIES</span></div>
+      <div className="speceventsContainer">
+      {/* {featuredEventData.map((item,index)=>(<Specificcard key={index} title={item.title} image={item.image} description={item.description} price={item.price} seats={item.seats} presenter={item.presenter} date={item.date} paid={item.paid}/>))} */}
+      <SpecCarousel posts={featuredEventData} />
+      </div>
+    </section>
+    <section className='container' id="specevents">
+    <div className="heading">FOR <span className="subheading">FOODIES</span></div>
+      <div className="speceventsContainer">
+      {/* {featuredEventData.map((item,index)=>(<Specificcard key={index} title={item.title} image={item.image} description={item.description} price={item.price} seats={item.seats} presenter={item.presenter} date={item.date} paid={item.paid}/>))} */}
+      <SpecCarousel posts={featuredEventData} />
+      </div>
+    </section>
+    <Footer />
     </>
   )
 }
