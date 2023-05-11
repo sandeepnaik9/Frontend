@@ -39,7 +39,7 @@ const Homepage = () => {
     <section className="container" id="topsection" style={{backgroundImage:`url(${bgc[currentSlide]})`,backgroundColor:'black'}}>
     <Navbar />
     {/* <img src={BannerImage} id="banner" alt="" /> */}
-    <p id="bannertext1"><span className="differnetFont">Go</span> Together,</p><p id="bannertext2"><span className="differnetFont">Go</span> Better</p>
+    <p id="bannertext1"><span className="differnetFont"></span> Together,</p><p id="bannertext2"><span className="differnetFont">Go</span> Better</p>
     </section>
     <section className='container' id="upcomingevents">
       <div className="heading">UPCOMING <span className="subheading">EVENTS</span></div>
