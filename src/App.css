@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded');
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@700&family=Leckerli+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kavoon&display=swap');
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 body {
   font-family: Encode Sans Expanded;
   margin:0
@@ -417,4 +419,88 @@ nav {
 .SpecCarousel{
   position:relative;
   width:100%;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #BFDAF7;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #7cb7f6;
+}
+.form .message {
+  margin: 15px 0;
+  color: #BFDAF7;
+  font-size: 12px;
+}
+.form .message a {
+  color: #7cb7f6;
+  text-decoration: none;
+}
+/* .form .login-form {
+  display: none;
+} */
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.modal {
+  position: fixed;
+  height: 800px;
+  width: 400px;
+  left: 1;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-header h1{
+  display: inline;
+  color: black;
+  font-size: xx-large;
+}
+.modal-header button{
+  float: right;
+  border: none;
+  background-color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding-top: 9px;
 }
