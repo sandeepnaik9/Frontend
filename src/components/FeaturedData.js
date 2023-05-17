@@ -5,8 +5,9 @@ import Ticket from '../assets/img/ticket.png'
 import Calendar from '../assets/img/calendar.png'
 
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-const FeaturedData = ({image,title,presenter,description,seats,date,price,paid}) => {
+const FeaturedData = ({image,title,presenter,description,seats,date,price,paid,id}) => {
     const [bookmark,setBookmark] = useState(false);
 
     const handleBookmark = () => {
@@ -64,9 +65,9 @@ const FeaturedData = ({image,title,presenter,description,seats,date,price,paid})
 					</div>
 				</div>
 				<div className="col-md-6 d-flex justify-content-end">
-                    <div className="fetaureTicketButton">
+                    <Link style={{backgroundColor:"#BFDAF7"}} className="fetaureTicketButton btn" to={`/event/${id}`}>
                     Ticket Details
-                    </div> 
+                    </Link> 
 				</div>
 			</div>
 		</div>

@@ -82,13 +82,14 @@ body {
 .fetaureTicketButton{
   display: flex;
   height: 63px;
+  border:none;
   border-radius:64px;
   padding:0px 15px;
   justify-content: center;
   align-items: center;
   font-weight: 600;
   margin-top:20px;
-  background-color: #BFDAF7;
+
 }
 
 .featuredButton{

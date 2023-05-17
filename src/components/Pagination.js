@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 const Pagination = ({totalPosts,postsPerPage,setCurrentPage,currentPage}) => {
 

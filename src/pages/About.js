@@ -11,6 +11,7 @@ const About = () => {
         style={{width:'100%',height:'100%',objectFit:'cover'}}
         clssName = "d-block h-100" 
         src={image}
+        alt="aboutus"
         />
     
     <p id="bannertext1" style={{display:'block',whiteSpace:'pre-line'}}>About US</p>
@@ -30,7 +31,7 @@ const About = () => {
                 <div className="d-flex flex-column align-items-center justify-content-center">
 
                     <div className="userImage rounded-circle" style={{height:'150px',width:'150px',backgroundColor:'gray'}}>
-                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="" />
+                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="UserImage" />
                     </div>
                     <strong className="mt-3"> Fayz Ahasan</strong>
 
@@ -41,7 +42,7 @@ const About = () => {
                 <div className="d-flex flex-column align-items-center justify-content-center">
 
                     <div className="userImage rounded-circle" style={{height:'150px',width:'150px',backgroundColor:'gray'}}>
-                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="" />
+                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="UserImage" />
                     </div>
                     <strong className="mt-3"> Mohd Amir Ali</strong>
 
@@ -52,7 +53,7 @@ const About = () => {
                 <div className="d-flex flex-column align-items-center justify-content-center">
 
                     <div className="userImage rounded-circle" style={{height:'150px',width:'150px',backgroundColor:'gray'}}>
-                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="" />
+                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="UserImage" />
                     </div>
                     <strong className="mt-3"> R Sai Sandeep</strong>
 
@@ -63,7 +64,7 @@ const About = () => {
                 <div className="d-flex flex-column align-items-center justify-content-center">
 
                     <div className="userImage rounded-circle" style={{height:'150px',width:'150px',backgroundColor:'gray'}}>
-                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="" />
+                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="UserImage" />
                     </div>
                     <strong className="mt-3"> Muzammil Ahmed Khan</strong>
 
@@ -74,7 +75,7 @@ const About = () => {
                 <div className="d-flex flex-column align-items-center justify-content-center">
 
                     <div className="userImage rounded-circle" style={{height:'150px',width:'150px',backgroundColor:'gray'}}>
-                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="" />
+                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="UserImage" />
                     </div>
                     <strong className="mt-3"> Mohammed Mehtab</strong>
 
@@ -85,7 +86,7 @@ const About = () => {
                 <div className="d-flex flex-column align-items-center justify-content-center">
 
                     <div className="userImage rounded-circle" style={{height:'150px',width:'150px',backgroundColor:'gray'}}>
-                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="" />
+                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="UserImage" />
                     </div>
                     <strong className="mt-3"> Mohd Moiz Uddin</strong>
 
@@ -96,7 +97,7 @@ const About = () => {
                 <div className="d-flex flex-column align-items-center justify-content-center">
 
                     <div className="userImage rounded-circle" style={{height:'150px',width:'150px',backgroundColor:'gray'}}>
-                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="" />
+                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="UserImage" />
                     </div>
                     <strong className="mt-3"> Mohammed Muzammil Ali</strong>
 
@@ -107,7 +108,7 @@ const About = () => {
                 <div className="d-flex flex-column align-items-center justify-content-center">
 
                     <div className="userImage rounded-circle" style={{height:'150px',width:'150px',backgroundColor:'gray'}}>
-                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="" />
+                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="UserImage" />
                     </div>
                     <strong className="mt-3"> Haseeba Fatima</strong>
 
@@ -118,7 +119,7 @@ const About = () => {
                 <div className="d-flex flex-column align-items-center justify-content-center">
 
                     <div className="userImage rounded-circle" style={{height:'150px',width:'150px',backgroundColor:'gray'}}>
-                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="" />
+                        <img style={{width:'100%',height:"100%",objectFit:''}} src={USer} alt="UserImage" />
                     </div>
                     <strong className="mt-3"> Yousuf Ahmed</strong>
 

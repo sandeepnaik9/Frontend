@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 const CustomMenu = React.forwardRef(
   ({ children, style, className, "aria-labelledby": labeledBy }, ref) => {

@@ -20,7 +20,7 @@ const SpecifiEvent = ({posts,type}) => {
   },[scrollLeft])
 
   return (
-    <div className={type=="eventlist" ?"row d-flex custom-scrollbar":"row d-flex custom-scrollbar flex-nowrap" } ref={scrollContainer} tabIndex="1" onKeyDown={handleKeyDown} style={{overflow:'scroll'}}>
+    <div className={type==="eventlist" ?"row d-flex custom-scrollbar":"row d-flex custom-scrollbar flex-nowrap" } ref={scrollContainer} tabIndex="1" onKeyDown={handleKeyDown} style={{overflow:'scroll'}}>
         {posts.map((post,index) =><SpecificEventCard post={post}/>)}
         
     </div>

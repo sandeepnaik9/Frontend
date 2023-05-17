@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import featuredEventData from '../data/featuredEventdata'
-import Image from '../assets/img/images/carousel4.jpg'
 import Carousel1 from '../assets/img/images/carousel1.jpeg'
 import Carousel2 from '../assets/img/images/carousel2.jpeg'
 import Carousel3 from '../assets/img/images/carousel3.jpeg'
@@ -28,7 +27,7 @@ const EvenDetails = () => {
   return (
     <div>
         <section style={{width:'100%',height:"60vh",display:'flex'}}>
-        {data?<img src={data.image} style={{objectFit:'cover',width:'100%',height:'100%'}}  alt="" />:""}
+        {data?<img src={data.image} style={{objectFit:'cover',width:'100%',height:'100%'}}  alt="EventBanner" />:""}
         </section>
         <section className="container-fluid mt-3">
             <h5>Featured Event</h5>
@@ -36,8 +35,8 @@ const EvenDetails = () => {
                 <div className="col-md-7">
                     <div>
                     <section className="container-fluid" id="upcomingevents">
-      <div className="heading">UPCOMING <span className="subheading">EVENTS</span></div>
-      <div style={{height:"60vh"}}>
+      <h3 className="my-5">Internal <strong>Hackathon 2023 </strong></h3>
+      <div className="my-4" style={{height:"60vh"}}>
 
       <Carousel variant='dark' className='rounded-0 carouselUpcoming' style={{height:'100vh'}} autoPlay={true}
       interval={5000}
@@ -48,6 +47,7 @@ const EvenDetails = () => {
         style={{width:'100%',height:"100%",objectFit:'contain'}}
         clssName = "d-block h-100" 
         src={image}
+        alt="EventCarousel"
         />
       </Carousel.Item>))}
 
@@ -92,12 +92,12 @@ const EvenDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <h3>Event Descirption</h3>
-                    <p>
+                    <h3 className="my-5">Event <strong>Descirption</strong></h3>
+                    <p style={{textAlign:'justify'}}>
                         Description of Event
                     </p>
-                    <h3>
-                        Event Summary
+                    <h3 className="my-5">
+                        Event <strong>Summary</strong>
                     </h3>
                     <div style={{border:"1px solid black",padding:'20px',display:'flex',borderRadius:'10px',flexDirection:'column',justifyContent: 'center'}}>
                         <div className="row d-flex">
@@ -108,7 +108,7 @@ const EvenDetails = () => {
                                 Competitions
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row" style={{backgroundColor:"#D9D9D9"}}>
                             <div className="col-md-6 p-2">
                                 Event 1 Name
                             </div>

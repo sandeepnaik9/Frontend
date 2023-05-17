@@ -13,7 +13,6 @@ import bgc5 from '../assets/img/bgc5.jpeg'
 import bgc6 from '../assets/img/bgc6.jpeg'
 import bgc7 from '../assets/img/bgc7.jpg'
 import featuredEventData from '../data/featuredEventdata'
-import Footer from '../components/Footer';
 import SpecifiEvent from '../components/SpecifiEvent';
 
 const Images = [Carousel1, Carousel2, Carousel3, Carousel4]
@@ -46,6 +45,7 @@ const Homepage = () => {
         style={{width:'100%'}}
         clssName = "d-block h-100" 
         src={image}
+        alt="bgcarousel"
         />
       </Carousel.Item>))}
 
@@ -66,6 +66,7 @@ const Homepage = () => {
         style={{width:'100%',height:"100%",objectFit:'contain'}}
         clssName = "d-block h-100" 
         src={image}
+        alt="upeventcarousel"
         />
       </Carousel.Item>))}
 
@@ -78,7 +79,7 @@ const Homepage = () => {
     <section className='container-fluid' id="featuredevents">
     <div className="heading">Featured <span className="subheading">EVENTS</span></div>
       <div className="featuredCard">
-      {featuredEventData.map((item,index)=>(<Featured key={index} title={item.title} image={item.image} description={item.description} price={item.price} seats={item.seats} presenter={item.presenter} date={item.date} paid={item.paid}/>))}
+      {featuredEventData.map((item,index)=>(<Featured key={index} title={item.title} image={item.image} description={item.description} price={item.price} seats={item.seats} presenter={item.presenter} date={item.date} paid={item.paid} id={item.id}/>))}
       
       </div>
     </section>

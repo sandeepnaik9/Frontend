@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Image from '../assets/img/images/carousel4.jpg'
 import { Carousel, Dropdown } from 'react-bootstrap'
 import CustomToggle from '../components/CustomToggle'
 import CustomMenu from '../components/CustomMenu'
@@ -14,9 +13,9 @@ import Carousel4 from '../assets/img/images/carousel4.jpg'
 const EventList = () => {
   const [selectedVal,setSelectedVal] = useState(null);
   const [currentPage,setCurrentPage] = useState(1)
-  const [postsPerPage,setPostsPerPage] = useState(6);
+  const postsPerPage = 6;
 
-  const [data,setData] = useState(featuredEventData);
+  const data = featuredEventData;
   const handleSelect = (e) => {
     setSelectedVal(e)
   }
@@ -37,11 +36,12 @@ const EventList = () => {
       interval={4000}
       controls={false}
       indicators={false} >
-      {Images.map(image=>(<Carousel.Item className="w-100 h-100">
+      {Images.map(item=>(<Carousel.Item className="w-100 h-100">
         <img
         style={{width:'100%',height:"100%",objectFit:'cover'}}
         clssName = "d-block h-100" 
-        src={image}
+        src={item}
+        alt="HYEV Carousel"
         />
       </Carousel.Item>))}
 
