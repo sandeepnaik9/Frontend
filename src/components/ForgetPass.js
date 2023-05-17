@@ -13,12 +13,12 @@ const ForgetPass = (props) => {
     }
     return(
        
-    <div className="modal-content">
-    <div className="modal-header">
+    <div className="custom-modal-content">
+    <div className="custom-modal-header">
         <h1>Forget Password</h1>
         <button onClick={props.onClose}>X</button>
     </div>
-    <div className="modal-body">
+    <div className="custom-modal-body">
         <div class="login-page">
             <div class="form">
             <form class="login-form">

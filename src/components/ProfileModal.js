@@ -39,7 +39,7 @@ const ProfileModal = (props) => {
         }
     return (
 
-        <div className="modal">
+        <div className="custom-modal">
        <Login onClose={closeModal} showLogin = {showLogin} setShowLogin = {setShowLogin} onRegClick={onRegClick} onFpClick={onFpClick} /> 
        <Register onClose={closeModal} showRegister = {showRegister} setShowRegister={setShowRegister} setShowLogin = {setShowLogin} /> 
        <ForgetPass onClose={closeModal} showFp = {showFp} setShowFp={setShowFp} setShowLogin = {setShowLogin}/>
