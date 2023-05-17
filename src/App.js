@@ -5,8 +5,8 @@ import {useState,useEffect} from 'react'
 import Navbar from './components/Navbar';
 import { Route,Routes } from 'react-router-dom';
 import EvenDetails from './pages/EvenDetails';
-import Homepage from './pages/HomePage';
 import About from './pages/About';
+import Homepage from './pages/homepage';
 import Footer from './components/Footer';
 import Contactus from './pages/Contactus';
 function App() {
