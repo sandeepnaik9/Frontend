@@ -59,7 +59,7 @@ const Homepage = () => {
     
       <Carousel variant='dark' className='rounded-0 carouselUpcoming' autoPlay={true}
       interval={4000}
-      controls={false}
+      controls={true}
       indicators={true} >
       {Images.map(image=>(<Carousel.Item className="w-100 h-100">
         <img
