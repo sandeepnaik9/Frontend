@@ -351,6 +351,9 @@ body {
   align-items: center;
 }
 
+/* .right-icons:nth-child(2), .right-icons:nth-child(2){
+  margin-left: 3px;
+} */
 
 
 
@@ -581,4 +584,128 @@ body {
   font-size: 20px;
   cursor: pointer;
   padding-top: 9px;
+  font-weight: 900;
+}
+
+.login-form .message, .login-form .message a{
+  font-size: 1.5vh;
+}
+
+
+
+/* Loading spinner */
+.loadingSpinnerContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingSpinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: #000 transparent #555 transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* prof-menu-dropdown-section */
+.prof-menu-wrap{
+  position: absolute;
+  top: 100%;
+  right: 1%;
+  width: 320px;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s;
+}
+
+.prof-menu-wrap.open-prof-menu{
+  max-height: 400px;
+}
+
+.prof-menu{
+  background: #fff;
+  padding: 20px;
+  margin: 10px;
+  margin-top: 0;
+}
+
+.prof-menu-user-info{
+  display: flex;
+  align-items: center;
+}
+
+.prof-menu-user-info h3{
+  font-weight: 500;
+  color: #000;
+}
+
+.prof-menu-user-info img{
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  background-color: #000;
+}
+
+.prof-menu hr{
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+
+.prof-menu a{
+  color: #000;
+}
+
+.prof-menu-link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.prof-menu-link p{
+  width: 100%;
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+.prof-menu-link span{
+  font-size: 22px;
+  transition: transform 0.5s;
+}
+
+.prof-menu-link:hover span{
+  transform: translateX(5px);
+}
+
+.prof-menu-link:hover p{
+  font-weight: 550;
+}
+
+#prof-menu-btn{
+  cursor: pointer;
+}
+
+#prof-menu-btn{
+  margin-left: 20px;
 }

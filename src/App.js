@@ -1,6 +1,7 @@
 import './App.css';
 import EventList from './pages/EventList';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 import {useState,useEffect} from 'react'
 import Navbar from './components/Navbar';
 import { Route,Routes } from 'react-router-dom';
@@ -34,6 +35,7 @@ function App() {
 
       </Routes>)}
       <Footer />
+      <ToastContainer/>
   </>
   )
 }

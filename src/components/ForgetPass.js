@@ -19,13 +19,13 @@ const ForgetPass = (props) => {
         <button onClick={props.onClose}>X</button>
     </div>
     <div className="custom-modal-body">
-        <div class="login-page">
-            <div class="form">
-            <form class="login-form">
+        <div className="login-page">
+            <div className="form">
+            <form className="login-form">
                     <input type="text" placeholder="Username" />
                     <input type="password" placeholder="Email" />
                     <button>Send Link</button>
-                    <p class="message">Back to login <Link onClick={onClick}>Login</Link></p>
+                    <p className="message">Back to login <Link onClick={onClick}>Login</Link></p>
                 </form>
                
             </div>

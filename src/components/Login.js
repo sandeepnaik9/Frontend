@@ -1,30 +1,78 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import {toast} from 'react-toastify'
+import {useSelector, useDispatch} from 'react-redux'
+import Spinner from "./Spinner";
+import {login, reset} from '../reduxFeatures/auth/authSlice'
 
 
 const Login = (props) => {
-    //const [showLogin, setShowLogin] = useState(true);
-    
+    const [formData, setFormData] = useState({
+        username: '',
+        password: '',
+    })
+
+    const { username, password } = formData
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const {user, isError, isLoading, isSuccess, message} = useSelector(
+        (state) => state.auth
+    )
+
+    const closeButton = useRef()
+    useEffect(() => {
+        if(isError){
+            toast.error('Credentials invalid, try again!')
+        }
+        if(isSuccess){
+            navigate('/')
+            toast.success('Welcome ' + user.name)
+        }
+        dispatch(reset())
+    }, [user, isSuccess, isError, message, navigate, dispatch])
+
+    const onChange = (e) => {
+        setFormData((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value,
+        }))
+    }
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+
+        const userData = {
+            username,
+            password,
+        }
+        dispatch(login(userData))
+    }
+
     if(!props.showLogin){
         return null;
+    }
+    if(isLoading){
+        return <Spinner/>
     }
     return(
     <div className="custom-modal-content" >
     <div className="custom-modal-header">
         <h1>Sign in</h1>
-        <button onClick={props.onClose}>X</button>
+        <button onClick={props.onClose} ref={closeButton}>X</button>
     </div>
     <div className="custom-modal-body">
-        <div class="login-page">
-            <div class="form">
-            <form class="login-form">
-                    <input type="text" placeholder="Username" />
-                    <input type="password" placeholder="Password" />
+        <div className="login-page">
+            <div className="form">
+            <form className="login-form" onSubmit={onSubmit}>
+                    <input type="text" name="username" placeholder="Username" value={username} onChange={onChange} required/>
+                    <input type="password" name="password" placeholder="Password" value={password} onChange={onChange} required/>
                     <button>login</button>
-                    <p class="message">Not registered? <Link onClick={props.onRegClick}>Create an account</Link></p>
-                    <p class="message">Forgot password? <Link onClick={props.onFpClick}>Reset password</Link></p>
-                    <button>login as host</button>
+                    <p className="message">Not registered? <Link onClick={props.onRegClick}>Create an account</Link></p>
+                    <p className="message">Forgot password? <Link onClick={props.onFpClick}>Reset password</Link></p>
                 </form>
                                 
             </div>

@@ -3,20 +3,18 @@ import Login from "./Login";
 import Register from "./Register";
 import ForgetPass from "./ForgetPass";
 
-
 const ProfileModal = (props) => {
   const [showLogin, setShowLogin] = useState(true);
   const [showRegister, setShowRegister] = useState(false);
   const [showFp, setShowFp] = useState(false);
-    
-  const closeModal = (e) => {
-        e.preventDefault();
+  
+
+  const closeModal = () => {
+        // e.preventDefault();
         props.onClose()
         setShowLogin(true);
-        // setShowLogin(false);
         setShowRegister(false);
         setShowFp(false);
-
     }
 
     const onRegClick = (e) =>{
@@ -37,6 +35,7 @@ const ProfileModal = (props) => {
     if(!props.show){
             return null;
         }
+    
     return (
 
         <div className="custom-modal">
