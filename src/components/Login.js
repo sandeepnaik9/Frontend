@@ -61,12 +61,12 @@ const Login = (props) => {
     return(
     <div className="custom-modal-content" >
     <div className="custom-modal-header">
-        <h1>Sign in</h1>
+        <div className="heading" style={{ color: 'black', display: 'inline' }} >Sign in</div>
         <button onClick={props.onClose} ref={closeButton}>X</button>
     </div>
     <div className="custom-modal-body">
         <div className="login-page">
-            <div className="form">
+            <div className="auth-form">
             <form className="login-form" onSubmit={onSubmit}>
                     <input type="text" name="username" placeholder="Username" value={username} onChange={onChange} required/>
                     <input type="password" name="password" placeholder="Password" value={password} onChange={onChange} required/>

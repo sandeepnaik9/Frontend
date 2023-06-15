@@ -10,6 +10,8 @@ import About from './pages/About';
 import Homepage from './pages/homepage';
 import Footer from './components/Footer';
 import Contactus from './pages/Contactus';
+import EditProfile from './pages/editProfile';
+
 function App() {
   const [deviceType, setDeviceType] = useState("")
 
@@ -32,7 +34,7 @@ function App() {
         <Route path="/event/:id" element={<EvenDetails />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contactus />} />
-
+        <Route path="/editprofile" element={<EditProfile />} />
       </Routes>)}
       <Footer />
       <ToastContainer/>

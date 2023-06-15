@@ -42,8 +42,8 @@ const Homepage = () => {
       indicators={false} >
       {bgc.map(image=>(<Carousel.Item className="w-100 h-100">
         <img
-        style={{width:'100%'}}
-        clssName = "d-block h-100" 
+        style={{width:'100%', height: '100%'}}
+        clssName = "d-block w-100 h-100" 
         src={image}
         alt="bgcarousel"
         />

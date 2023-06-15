@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faUser, faSignOutAlt, faEdit, faCog } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faUser, faSignOutAlt, faEdit, faCog, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../assets/img/logo.png'
 import userImg from '../assets/user.png'
 import ProfileModal from './ProfileModal';
@@ -19,9 +19,13 @@ function Navbar() {
   const path = useLocation().pathname;
   const [navStyle, setNavstyle] = useState();
   const [classN, setClassN] = useState();
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleNav = () => {
+    setIsOpen(!isOpen);
+  };
   useEffect(() => {
     console.log(path)
-    if (path === "/") {
+    if (path === "/" || path === "/about") {
       setClassN("home")
       setNavstyle({
         display: 'flex',
@@ -81,19 +85,22 @@ const toggleProfMenu = () => {
       {/* <button className="menu-toggle" aria-label="Toggle Menu">
         <FontAwesomeIcon icon={faBars} />
       </button> */}
-      <ul className={`menu ${classN}`}>
+      <ul className={`menu ${classN} ${isOpen ? 'active-nav' : ''}`} style={{listStyle: 'none'}}>
         <li><Link to="/" className={path === "/" ? 'active' : ''}>Home</Link></li>
         <li><Link to="/events" className={path === "/events" ? 'active1' : ''}>Events</Link></li>
         <li><Link to="/about" className={path === "/about" ? 'active1' : ''}>About</Link></li>
         <li><Link to="/contact" className={path === "/contact" ? 'active1' : ''}>Contact</Link></li>
       </ul>
       <div className={`right-icons ${classN}`}>
+        <button onClick={toggleNav}>
+          {isOpen ? <FontAwesomeIcon icon={faTimes}/> : <FontAwesomeIcon icon={faBars}/>}
+        </button>
         <Link to="/search">
           <FontAwesomeIcon icon={faSearch} />
         </Link>
         {
           user ? (<>
-            <FontAwesomeIcon icon={faUser} id='prof-menu-btn' onClick={toggleProfMenu}/>
+            <FontAwesomeIcon icon={faUser} id='prof-menu-btn' onClick={toggleProfMenu} user={user}/>
             <div className='prof-menu-wrap' id='profMenu'>
               <div className='prof-menu'>
                 <div className='prof-menu-user-info'>
@@ -101,7 +108,7 @@ const toggleProfMenu = () => {
                   <h3>User's Name</h3>
                 </div>
                 <hr/>
-                <Link className='prof-menu-link'> 
+                <Link className='prof-menu-link' to={'/editprofile'}> 
                   <FontAwesomeIcon icon={faEdit} />
                   <p>Edit Profile</p>
                   <span>{'>'}</span>

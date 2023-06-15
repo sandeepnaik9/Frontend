@@ -74,12 +74,12 @@ const Register = (props) => {
         
         <div className="custom-modal-content">
             <div className="custom-modal-header">
-                <h1>Register</h1>
+                <div className="heading" style={{ color: 'black', display: 'inline' }} >Register</div>
                 <button onClick={props.onClose} ref={closeButton}>X</button>
             </div>
             <div className="custom-modal-body">
                 <div className="login-page">
-                    <div className="form" onSubmit={onSubmit}>
+                    <div className="auth-form" onSubmit={onSubmit}>
                         <form className="register-form">
                             <input type="text" name="name" placeholder="Name" value={name} onChange={onChange} required/>
                             <input type="email" name="email" placeholder="Email Address" value={email} onChange={onChange} required/>

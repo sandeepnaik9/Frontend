@@ -17,7 +17,18 @@ body {
 
 }
 
-
+.custom-input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  /* border-radius: 30%; */
+  margin: 0 0 13px;
+  padding: 13px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
 
 #banner {
   width: 100%;
@@ -302,21 +313,25 @@ body {
   margin: 0;
 }
 
-.menu-toggle {
-  display: block;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+.active-nav{
+  display: block !important;
 }
 
-.menu-toggle:focus {
-  outline: none;
+.active-nav *{
+  margin-bottom: 10px;
 }
 
-.menu-toggle i {
-  font-size: 24px;
-  color: #333;
+@media (min-width: 768px) {
+  .right-icons button{
+    display: none;
+  }
 }
+
+/* @media (max-width: 768px){
+  .menu{
+    display: none;
+  }
+} */
 
 .menu {
   display: none;
@@ -326,13 +341,16 @@ body {
   padding: 0;
 }
 
+/* 
 .menu li {
   margin-bottom: 10px;
 }
 
 .menu li:last-child {
   margin-bottom: 0;
-}
+} */
+
+
 
 .home a {
   text-decoration: none;
@@ -351,18 +369,28 @@ body {
   align-items: center;
 }
 
+.right-icons button{
+  background: transparent;
+  border: none;
+}
+
+
+
+.right-icons *{
+  margin: 0 5px;
+}
+
 /* .right-icons:nth-child(2), .right-icons:nth-child(2){
   margin-left: 3px;
 } */
-
-
 
 
 .active1{
   font-weight:600;
   background:linear-gradient(180deg, #BFDAF7 0%, rgba(55, 57, 196, 0.393182) 93.23%, rgba(30, 26, 187, 0.28) 97.64%, rgba(230, 98, 98, 0) 100%);
   border-radius: 10px;
-  padding:10px;
+  padding:7px;
+  padding-bottom: 11px;
 
 }
 
@@ -496,54 +524,54 @@ body {
   width:100%;
 }
 
-.form {
+.auth-form {
   position: relative;
-  z-index: 1;
   background: #FFFFFF;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); */
 }
-.form input {
+.auth-form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
   border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
+  /* border-radius: 30%; */
+  margin: 0 0 13px;
+  padding: 13px;
   box-sizing: border-box;
   font-size: 14px;
 }
-.form button {
+.auth-form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #BFDAF7;
   width: 100%;
   border: 0;
-  padding: 15px;
+  padding: 13px;
   color: #FFFFFF;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
 }
-.form button:hover,.form button:active,.form button:focus {
+.auth-form button:hover,.auth-form button:active,.auth-form button:focus {
   background: #7cb7f6;
 }
-.form .message {
+.auth-form .message {
   margin: 15px 0;
   color: #BFDAF7;
   font-size: 12px;
 }
-.form .message a {
+.auth-form .message a {
   color: #7cb7f6;
   text-decoration: none;
 }
-/* .form .login-form {
+/* .auth-form .login-auth-form {
   display: none;
 } */
 
@@ -565,7 +593,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index:1
 }
 
 .link{
@@ -709,3 +736,76 @@ body {
 #prof-menu-btn{
   margin-left: 20px;
 }
+
+.userPFP{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 100px;
+  background-color: #000;
+}
+
+.editProf{
+  display: grid;
+  place-items: center;
+}
+
+.ptr{
+  cursor: pointer;
+}
+
+.pfp-label{
+  margin-top: 10px;
+}
+
+.prof-input{
+  display: inline;
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #BFDAF7;
+  width: 60vw;
+  border: 0;
+  margin: 0 0 13px;
+  padding: 13px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.profile-form{
+  margin-top: 50px;
+  width: 80%;
+}
+
+.profile-form label{
+  display: inline-block;
+}
+
+.prof-form-item{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+  justify-content: space-between;
+}
+
+.profile-form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #BFDAF7;
+  width: 250px;
+  border: 0;
+  padding: 13px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin-left: 40%;
+  margin-top: 50px;
+}
+.profile-form button:hover,.profile-form button:active,.profile-form button:focus {
+  background: #7cb7f6;
+}
+

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div className='container-fluid' style={{position:'relative',height:'250px',overflow:'hidden',marginTop:'200px',background:'linear-gradient(180deg, #FFFFFF 0%, #76ADFF 99.97%, rgba(191, 218, 247, 0) 99.98%)'}}>
+    <div className='container-fluid' style={{position:'relative',height:'300px',overflow:'hidden',marginTop:'200px',background:'linear-gradient(180deg, #FFFFFF 0%, #76ADFF 99.97%, rgba(191, 218, 247, 0) 99.98%)'}}>
         <div style={{display:'flex',}}>
             <div className='logoHolder' style={{margin:'10px'}}>
                 <img className='footerLogo' src={Logo} alt="Logo" />
@@ -20,11 +20,11 @@ const Footer = () => {
             </div>
             
         </div>
-        <div style={{display:'flex',padding:'10px',justifyContent:'space-between',alignItems:'center',position:'absolute',bottom:0,left:0,width:'100%'}}>
+        <div style={{display:'flex', flexDirection: 'column', padding:'10px', justifyContent:'space-between', alignItems:'center', position:'absolute', bottom:0,left:0,width:'100%'}}>
             <div>
                 All rights reserved by HPC Pvt Ltd, made by HYEV Team 
             </div>
-            <div style={{display:'flex',justifyContent:'space-around',width:'50%'}}>
+            <div style={{display:'flex',justifyContent:'space-around',width:'60%'}}>
                 <Link to="/about" className="btn link">ABOUT US</Link>
                 <Link to="/contact" className="btn link">CONTACT</Link>
                 <Link to="/privacy" className='btn link'>PRIVACY POLICY</Link>
