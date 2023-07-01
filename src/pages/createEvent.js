@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
-import {Form, Spinner} from 'react-bootstrap';
+import React from 'react'
+// import { useEffect } from 'react';
+import { Form } from 'react-bootstrap';
 import { useState } from 'react';
 import Select from 'react-select'
 
@@ -27,42 +28,34 @@ const CreateEvent = () => {
   const [insta, setInsta] = useState('');
   const [twt, setTwt] = useState('');
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const [table, setTable] = useState([]);
-  const [column1, setColumn1] = useState('');
-  const [column2, setColumn2] = useState('');
   const [banner, setBanner] = useState('');
   const [imgs, setImgs] = useState([]);
+  const [eventsList, setEventsList] = useState([]);
+  const [event, setEvent] = useState();
+  const [price, setPrice] = useState();
 
   const handleChange = (selected) => {
     setSelectedOptions(selected);
-  };
-  const handleAddRow = () => {
-    const newRow = {
-      column1,
-      column2,
-    };
-
-    setTable([...table, newRow]);
-    setColumn1('');
-    setColumn2('');
-  };
-  const deleteRow = (index) => {
-    const updatedTable = [...table];
-    updatedTable.splice(index, 1);
-    setTable(updatedTable);
+    console.log(selectedOptions);
   };
 
   const addBanner = (e) => {
     e.preventDefault();
     setBanner(e.target.files[0]);
     console.log(banner);
-  } 
+  }
 
   const addImgs = (e) => {
     e.preventDefault();
     const files = Array.from(e.target.files);
     setImgs(files);
     console.log(imgs)
+  }
+
+  const socials = {
+    fb,
+    insta,
+    twt
   }
 
   const eventData = {
@@ -78,12 +71,10 @@ const CreateEvent = () => {
     min,
     seats,
     desc,
-    fb,
-    insta,
-    twt,
     selectedOptions,
-    table, 
+    socials,
     banner,
+    eventsList,
   }
 
   const createEvt = (e) => {
@@ -91,9 +82,26 @@ const CreateEvent = () => {
     console.log(eventData);
   }
 
-  useEffect(() => {
-    console.log(selectedOptions);
-  }, [selectedOptions]);
+  const addEvent = (e) => {
+    e.preventDefault();
+    const newEvent = {
+      eventName: event,
+      eventPrice: price ? price : 0
+    };
+    setEventsList([...eventsList, newEvent]);
+    setEvent('');
+    setPrice('');
+  };
+
+  const delEvent = (index) => {
+    const updatedList = eventsList.filter((item, i) => i !== index);
+    setEventsList(updatedList);
+  };
+
+  // useEffect(() => {
+  //   console.log(selectedOptions);
+  //   console.log(eventsList);
+  // }, [selectedOptions, eventsList]);
 
   return (
     <div className='ce-main-div'>
@@ -106,17 +114,17 @@ const CreateEvent = () => {
 
         <h3>Event <strong>Details</strong></h3>
         <input placeholder='Title' onChange={e => setTitle(e.target.value)} required></input>
-        
+
         <Form.Group>
-      {/* <Form.Label>Event type</Form.Label> */}
-      <Select
-        isMulti
-        options={options}
-        value={selectedOptions}
-        onChange={handleChange}
-        placeholder="Select event type"
-      />
-    </Form.Group>
+          {/* <Form.Label>Event type</Form.Label> */}
+          <Select
+            isMulti
+            options={options}
+            value={selectedOptions}
+            onChange={handleChange}
+            placeholder="Select event type"
+          />
+        </Form.Group>
 
         <input placeholder='Location' onChange={e => setLoc(e.target.value)} required></input>
         <input placeholder='Date: dd/mm/yyyy' onChange={e => setDate(e.target.value)} required></input>
@@ -132,7 +140,7 @@ const CreateEvent = () => {
         </div>
         <div class="ce-file">
           <label>Upload event banner:</label>
-          <input type="file" onChange={addBanner} class="custom-file-input" id="customFile" required/>
+          <input type="file" onChange={addBanner} class="custom-file-input" id="customFile" required />
         </div>
         <input placeholder='Number of seats' onChange={e => setSeats(e.target.value)} type='number' min={0} max={99999999}></input>
         <textarea placeholder='Description' onChange={e => setDesc(e.target.value)} maxLength={150} required></textarea>
@@ -145,28 +153,45 @@ const CreateEvent = () => {
         <input
           type="text"
           placeholder="Event"
-          value={column1}
-          onChange={(e) => setColumn1(e.target.value)}
+          value={event}
+          onChange={(e) => setEvent(e.target.value)}
         />
         <input
-          type="text"
+          type="number"
           placeholder="Price"
-          value={column2}
-          onChange={(e) => setColumn2(e.target.value)}
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
         />
-        <button type="button" onClick={handleAddRow} className='btn btn-primary' style={{ backgroundColor: "#7cb7f6", border: "none", color: "black" }}>
+        <button className='btn btn-primary' onClick={addEvent} style={{ backgroundColor: "#7cb7f6", border: "none", color: "black" }}>
           Add Sub-event
         </button>
-        <div>
-        <ul className='sub-events-list'>
-          {
-            table.map((row, index) => (
-              <li key={index} onClick={() => deleteRow(index)}>
-                {row.column1} - {row.column2}
-              </li>
-            ))
-          }
-        </ul>
+
+        <div className='container'>
+          <table className='table table-striped'>
+          <thead>
+          <tr>
+            <th>Event</th>
+            <th>Price</th>
+            <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              eventsList.map((item, index) => (
+              <tr key={index}>
+              <td>{item.eventName}</td>
+              <td>{item.eventPrice}</td>
+              <td><button className='btn btn-danger btn-sm' onClick={
+                (e) => {
+                  e.preventDefault();
+                  delEvent(index);
+                }
+                }>x</button></td>
+            </tr>
+              ))
+            }
+          </tbody>
+          </table>
         </div>
 
         <br />
