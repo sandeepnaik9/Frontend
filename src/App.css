@@ -295,8 +295,6 @@ body {
 }
 
 
-
-
 .logo {
   display: flex;
   align-items: center;
@@ -322,16 +320,11 @@ body {
 }
 
 @media (min-width: 768px) {
-  .right-icons button{
+  .nav-btn{
     display: none;
   }
 }
 
-/* @media (max-width: 768px){
-  .menu{
-    display: none;
-  }
-} */
 
 .menu {
   display: none;
@@ -374,10 +367,13 @@ body {
   border: none;
 }
 
-
+.nav-icon{
+  color: #BFDAF7;
+}
 
 .right-icons *{
   margin: 0 5px;
+  /* color: #BFDAF7; */
 }
 
 /* .right-icons:nth-child(2), .right-icons:nth-child(2){
@@ -545,7 +541,7 @@ body {
   box-sizing: border-box;
   font-size: 14px;
 }
-.auth-form button {
+.auth-form button, .custom-btn{
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -619,7 +615,6 @@ body {
 }
 
 
-
 /* Loading spinner */
 .loadingSpinnerContainer {
   position: fixed;
@@ -684,8 +679,10 @@ body {
   color: #000;
 }
 
+
 .prof-menu-user-info img{
   width: 60px;
+  height: 60px;
   border-radius: 50%;
   margin-right: 15px;
   background-color: #000;
@@ -699,9 +696,6 @@ body {
   margin: 15px 0 10px;
 }
 
-.prof-menu a{
-  color: #000;
-}
 
 .prof-menu-link{
   display: flex;
@@ -710,10 +704,15 @@ body {
   margin: 12px 0;
 }
 
+.prof-menu-link *{
+  color: #000;
+}
+
 .prof-menu-link p{
   width: 100%;
   margin-bottom: 0;
   margin-left: 5px;
+  color: #000;
 }
 
 .prof-menu-link span{
@@ -809,3 +808,67 @@ body {
   background: #7cb7f6;
 }
 
+/* Create event page */
+.ce-main-div{
+  margin-top: 20px;
+  background-color: #ccc;
+  padding: 20px;
+}
+
+.ce-main-div input{
+  margin: 30px;
+  padding: 5px;
+  width: 300px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ce-btn{
+  border: none;
+  margin: 30px 45%;
+  margin-left: 50%;
+  margin-right: auto;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background-color: #7cb7f6;
+}
+
+.time input{
+  margin: 30px 10px;
+  width: 35px;
+}
+
+.time p{
+  display: inline;
+}
+
+.ce-main-div textarea, .ce-file{
+  margin: 30px;
+  border: none;
+}
+
+.time{
+  margin: 30px;
+  margin-right: 30px;
+  width: 200px;
+}
+
+.sub-events-list li::before{
+  content: '❌ ';
+  list-style: none;
+  cursor: pointer;
+}
+
+.sub-events-list li{
+  margin: 5px;
+}
+
+.sub-events-list{
+  list-style: none;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+}

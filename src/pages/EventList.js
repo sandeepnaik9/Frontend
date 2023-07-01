@@ -9,6 +9,7 @@ import Carousel1 from '../assets/img/images/carousel1.jpeg'
 import Carousel2 from '../assets/img/images/carousel2.jpeg'
 import Carousel3 from '../assets/img/images/carousel3.jpeg'
 import Carousel4 from '../assets/img/images/carousel4.jpg'
+import { Link } from 'react-router-dom'
 
 const EventList = () => {
   const [selectedVal,setSelectedVal] = useState(null);
@@ -55,9 +56,9 @@ const EventList = () => {
     <div className="heading">EVENTS <span className="subheading">LIST</span></div>
     <div style={{display: 'flex', justifyContent: 'end'}}>
         <div className="d-flex justify-content-between">
-            <button className="btn rounded-pill" style={{backgroundColor: '#BFDAF7',fontWeight: 'bold'}}>
+            <Link className="btn rounded-pill" to={'/createevent'} style={{backgroundColor: '#BFDAF7',fontWeight: 'bold'}}>
                 + Create Event
-            </button>
+            </Link>
             <Dropdown onSelect={handleSelect}>
         <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
           {selectedVal?selectedVal:'Pick an option'}
