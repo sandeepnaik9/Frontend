@@ -1,5 +1,5 @@
 import React from 'react'
-// import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import { useState } from 'react';
 import Select from 'react-select'
@@ -7,10 +7,10 @@ import Select from 'react-select'
 const CreateEvent = () => {
 
   const options = [
-    { value: 'option1', label: 'Cultural' },
-    { value: 'option2', label: 'Food' },
-    { value: 'option3', label: 'Sports' },
-    { value: 'option4', label: 'Technical' },
+    {  value: 'Cultural', label: 'Cultural' },
+    {  value: 'Food', label: 'Food'},
+    {  value: 'Sports', label: 'Sports' },
+    {  value: 'Technical', label: 'Technical' },
   ];
 
   const [name, setName] = useState('');
@@ -31,7 +31,7 @@ const CreateEvent = () => {
   const [banner, setBanner] = useState('');
   const [imgs, setImgs] = useState([]);
   const [eventsList, setEventsList] = useState([]);
-  const [event, setEvent] = useState();
+  const [eventName, setEventName] = useState();
   const [price, setPrice] = useState();
 
   const handleChange = (selected) => {
@@ -85,23 +85,24 @@ const CreateEvent = () => {
   const addEvent = (e) => {
     e.preventDefault();
     const newEvent = {
-      eventName: event,
-      eventPrice: price ? price : 0
+      [eventName]: price
     };
     setEventsList([...eventsList, newEvent]);
-    setEvent('');
+    setEventName('');
     setPrice('');
   };
+
 
   const delEvent = (index) => {
     const updatedList = eventsList.filter((item, i) => i !== index);
     setEventsList(updatedList);
   };
 
-  // useEffect(() => {
-  //   console.log(selectedOptions);
-  //   console.log(eventsList);
-  // }, [selectedOptions, eventsList]);
+  useEffect(() => {
+    console.log(selectedOptions);
+    console.log(eventsList);
+    // console.log(eventDict);
+  }, [selectedOptions, eventsList]);
 
   return (
     <div className='ce-main-div'>
@@ -153,8 +154,8 @@ const CreateEvent = () => {
         <input
           type="text"
           placeholder="Event"
-          value={event}
-          onChange={(e) => setEvent(e.target.value)}
+          value={eventName}
+          onChange={(e) => setEventName(e.target.value)}
         />
         <input
           type="number"
@@ -179,8 +180,8 @@ const CreateEvent = () => {
             {
               eventsList.map((item, index) => (
               <tr key={index}>
-              <td>{item.eventName}</td>
-              <td>{item.eventPrice}</td>
+              <td>{Object.keys(item)[0]}</td>
+              <td>{Object.values(item)[0]}</td>
               <td><button className='btn btn-danger btn-sm' onClick={
                 (e) => {
                   e.preventDefault();
