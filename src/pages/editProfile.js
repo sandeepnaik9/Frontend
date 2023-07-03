@@ -82,19 +82,19 @@ const changePFP = (e) =>{
 
       <form className='profile-form' onSubmit={updateProfile}>
         <div className='prof-form-item'>
-          <label>Name</label><input type="text" className='prof-input' placeholder={Name} onChange={e => setName(e.target.value)}/>
+          <label>Name</label><input defaultValue={Name} type="text" className='prof-input' placeholder={Name} onChange={e => setName(e.target.value)}/>
         </div>
         <div className='prof-form-item'>
-          <label>Bio</label><input type="text" className='prof-input' placeholder={Bio} onChange={e => setBio(e.target.value)} />
+          <label>Bio</label><textarea type="text" defaultValue={Bio} className='prof-input' placeholder={Bio} onChange={e => setBio(e.target.value)} maxLength={500}/>
         </div>
         <div className='prof-form-item'>
-          <label>Username</label><input type="text" className='prof-input' placeholder={Username} onChange={e => setUsername(e.target.value)} minLength={5}/>
+          <label>Username</label><input type="text" defaultValue={Username} className='prof-input' placeholder={Username} onChange={e => setUsername(e.target.value)} minLength={5}/>
         </div>
         <div className='prof-form-item'>
-          <label>Email</label><input type="email" className='prof-input' placeholder={Email} onChange={e => setEmail(e.target.value)}/>
+          <label>Email</label><input type="email" defaultValue={Email} className='prof-input' placeholder={Email} onChange={e => setEmail(e.target.value)}/>
         </div>
         <div className='prof-form-item'>
-          <label>Ph.no</label><input type="text" className='prof-input' placeholder={Phnum} onChange={e => setPhnum(e.target.value)} />
+          <label>Ph.no</label><input type="text" defaultValue={Phnum} className='prof-input' placeholder={Phnum} onChange={e => setPhnum(e.target.value)} />
         </div>
         <button type='submit'>Update Profile</button>
       </form>

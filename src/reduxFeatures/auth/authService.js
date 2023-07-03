@@ -19,6 +19,7 @@ const login = async (userData) => {
 
     if (response.data) {
         // localStorage.setItem('user', JSON.stringify(response.data))
+        window.location.reload(true);
         console.log('logged in');
     }
     return response.data

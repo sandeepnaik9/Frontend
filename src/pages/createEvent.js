@@ -58,34 +58,56 @@ const CreateEvent = () => {
     twt
   }
 
-  const eventData = {
-    imgs,
-    name,
-    email,
-    phone,
-    org,
-    title,
-    loc,
-    date,
-    hour,
-    min,
-    seats,
-    desc,
-    selectedOptions,
-    socials,
-    banner,
-    eventsList,
-  }
+  // const eventData = {
+  //   imgs,
+  //   name,
+  //   email,
+  //   phone,
+  //   org,
+  //   title,
+  //   loc,
+  //   date,
+  //   hour,
+  //   min,
+  //   seats,
+  //   desc,
+  //   selectedOptions,
+  //   socials,
+  //   banner,
+  //   eventsList,
+  // }
+
 
   const createEvt = (e) => {
     e.preventDefault();
+    const eventData = FormData();
+    eventData.set('name', name);
+    eventData.set('email', email);
+    eventData.set('phone', phone);
+    eventData.set('org', org);
+    eventData.set('eventTitle', title);
+    eventData.set('desc', desc);
+    eventData.set('imgs', imgs);
+    eventData.set('banner', banner);
+    eventData.set('date', date);
+    eventData.set('hour', hour);
+    eventData.set('min', min);
+    eventData.set('locations', );
+    eventData.set('eventType', selectedOptions);
+    eventData.set('eventsList', eventsList);
+    eventData.set('socials', socials);
+    eventData.set('seats', seats);
+    eventData.set('location', loc);
+
+
     console.log(eventData);
   }
 
   const addEvent = (e) => {
     e.preventDefault();
     const newEvent = {
-      [eventName]: price
+      "event": eventName,
+      "price": price
     };
     setEventsList([...eventsList, newEvent]);
     setEventName('');
@@ -127,7 +149,7 @@ const CreateEvent = () => {
           />
         </Form.Group>
 
-        <input placeholder='Location' onChange={e => setLoc(e.target.value)} required></input>
+        <textarea placeholder='Location' onChange={e => setLoc(e.target.value)} required />
         <input placeholder='Date: dd/mm/yyyy' onChange={e => setDate(e.target.value)} required></input>
         <div className='time'>
           <label><h5>Time:</h5></label>
@@ -180,8 +202,8 @@ const CreateEvent = () => {
             {
               eventsList.map((item, index) => (
               <tr key={index}>
-              <td>{Object.keys(item)[0]}</td>
-              <td>{Object.values(item)[0]}</td>
+              <td>{item.event}</td>
+              <td>{item.price}</td>
               <td><button className='btn btn-danger btn-sm' onClick={
                 (e) => {
                   e.preventDefault();

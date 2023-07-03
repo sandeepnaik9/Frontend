@@ -14,14 +14,21 @@ import { logout, reset, getUser } from '../reduxFeatures/auth/authSlice'
 function Navbar() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(getUser());
-  }, [dispatch]);
-
   const { isSuccess, user } = useSelector(
     (state) => state.auth
   )
+  useEffect(() => {
+   const ren = ()=> {
+    if(isSuccess){
+      dispatch(getUser());
+      dispatch(reset());
+
+   }
+  }
+  ren();
+  }, [isSuccess,dispatch]);
+
+
   // console.log(user)
   const path = useLocation().pathname;
   const [navStyle, setNavstyle] = useState();
@@ -67,11 +74,11 @@ function Navbar() {
 
   const [show, setShow] = useState(false);
 
-  useEffect(() => {
-    if (isSuccess) {
-      setShow(false)
-    }
-  }, [isSuccess])
+  // useEffect(() => {
+  //   if (isSuccess) {
+  //     setShow(false)
+  //   }
+  // }, [isSuccess])
 
   const onLogout = () => {
     dispatch(logout())

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import {toast} from 'react-toastify'
 import {useSelector, useDispatch} from 'react-redux'
 import Spinner from "./Spinner";
@@ -16,7 +16,7 @@ const Login = (props) => {
 
     const { username, password } = formData
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const {user, isError, isLoading, isSuccess, message} = useSelector(
@@ -25,16 +25,35 @@ const Login = (props) => {
 
     const closeButton = useRef()
     useEffect(() => {
-        if(isError){
-            toast.error('Credentials invalid, try again!')
-        }
-        if(isSuccess){
-            navigate('/')
-            toast.success('Welcome ' + user.name)
-        }
-        dispatch(reset())
-    }, [user, isSuccess, isError, message, navigate, dispatch])
+        const auth = () => {
+            if (isError) {
+              toast.error('Credentials invalid, try again!');
+            }
+            console.log(isSuccess, 'IS SUCCESS');
+            if (isSuccess) {
+              // window.location.reload(true);
+              dispatch(reset());
+              console.log("RESET");
+              window.location.reload(true);
+              toast.success('Welcome ' + user?.name);
+            }
+           
+          };
+        
+          
+        
+          return () => {
+            auth();
+            // Clean-up function
+            // Perform any necessary clean-up tasks here
+          };
 
+    }, [dispatch, isError, isSuccess, user?.name])
+
+    
+
+
+    
     const onChange = (e) => {
         setFormData((prevState) => ({
             ...prevState,
