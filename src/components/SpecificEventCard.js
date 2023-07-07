@@ -7,6 +7,9 @@ import { Link } from 'react-router-dom'
 const SpecificEventCard = ({post}) => {
 
 
+
+
+    
   return (
     <div className="col-md-4 flex-column card-content">
     <Link className="card-item btn" to={`/event/${post.id}` } style={{backgroundColor:'#BFDAF7',margin:'20px',borderRadius:"20px",padding:"20px"}}>

@@ -33,7 +33,7 @@ const Login = (props) => {
             if (isSuccess) {
               // window.location.reload(true);
               dispatch(reset());
-              console.log("RESET");
+            //   console.log("RESET");
               window.location.reload(true);
               toast.success('Welcome ' + user?.name);
             }
@@ -44,16 +44,11 @@ const Login = (props) => {
         
           return () => {
             auth();
-            // Clean-up function
-            // Perform any necessary clean-up tasks here
           };
 
     }, [dispatch, isError, isSuccess, user?.name])
 
-    
-
-
-    
+  
     const onChange = (e) => {
         setFormData((prevState) => ({
             ...prevState,

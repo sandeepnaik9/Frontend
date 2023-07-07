@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import SpecificEventCard from './SpecificEventCard';
+
+
 const SpecifiEvent = ({posts,type}) => {
     const [scrollLeft, setScrollLeft] = useState(0);
     const scrollContainer = useRef()

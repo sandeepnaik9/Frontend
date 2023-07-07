@@ -12,8 +12,8 @@ import Carousel4 from '../assets/img/images/carousel4.jpg'
 import { Link } from 'react-router-dom'
 
 const EventList = () => {
-  const [selectedVal,setSelectedVal] = useState(null);
-  const [currentPage,setCurrentPage] = useState(1)
+  const [selectedVal, setSelectedVal] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
 
   const data = featuredEventData;
@@ -30,55 +30,54 @@ const EventList = () => {
 
   return (
     <>
-    <section className='container-fluid p-0'>
-      <div style={{height:"60vh"}}>
-    
-      <Carousel variant='dark' className='rounded-0 carouselUpcoming' autoPlay={true}
-      interval={4000}
-      controls={false}
-      indicators={false} >
-      {Images.map(item=>(<Carousel.Item className="w-100 h-100">
-        <img
-        style={{width:'100%',height:"100%",objectFit:'cover'}}
-        clssName = "d-block h-100" 
-        src={item}
-        alt="HYEV Carousel"
-        />
-      </Carousel.Item>))}
+      <section className='container-fluid p-0'>
+        <div style={{ height: "60vh" }}>
 
-    </Carousel>
+          <Carousel variant='dark' className='rounded-0 carouselUpcoming' autoPlay={true}
+            interval={4000}
+            controls={false}
+            indicators={false} >
+            {Images.map(item => (<Carousel.Item className="w-100 h-100">
+              <img
+                style={{ width: '100%', height: "100%", objectFit: 'cover' }}
+                clssName="d-block h-100"
+                src={item}
+                alt="HYEV Carousel"
+              />
+            </Carousel.Item>))}
+          </Carousel>
 
-      </div>
-      
-  
-    </section>
-    <section className='container-fluid' >
-    <div className="heading">EVENTS <span className="subheading">LIST</span></div>
-    <div style={{display: 'flex', justifyContent: 'end'}}>
-        <div className="d-flex justify-content-between">
-            <Link className="btn rounded-pill" to={'/createevent'} style={{backgroundColor: '#BFDAF7',fontWeight: 'bold'}}>
-                + Create Event
+        </div>
+
+
+      </section>
+      <section className='container-fluid' >
+        <div className="heading">EVENTS <span className="subheading">LIST</span></div>
+        <div style={{ display: 'flex', justifyContent: 'end' }}>
+          <div className="d-flex justify-content-between">
+            <Link className="btn rounded-pill" to={'/createevent'} style={{ backgroundColor: '#BFDAF7', fontWeight: 'bold' }}>
+              + Create Event
             </Link>
             <Dropdown onSelect={handleSelect}>
-        <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
-          {selectedVal?selectedVal:'Pick an option'}
-        </Dropdown.Toggle>
+              <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+                {selectedVal ? selectedVal : 'Pick an option'}
+              </Dropdown.Toggle>
 
-        <Dropdown.Menu as={CustomMenu}>
-          <Dropdown.Item eventKey="Technical">Technical</Dropdown.Item>
-          <Dropdown.Item eventKey="Non-Technical">Non-Technical</Dropdown.Item>
-          <Dropdown.Item eventKey="Cultural">Cultural</Dropdown.Item>
-          <Dropdown.Item eventKey="Sports">Sports</Dropdown.Item>
-          <Dropdown.Item eventKey="Seminar">Seminar</Dropdown.Item>
-          <Dropdown.Item eventKey="Workshop">Workshop</Dropdown.Item>
-          <Dropdown.Item eventKey="Other">Other</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+              <Dropdown.Menu as={CustomMenu}>
+                <Dropdown.Item eventKey="Technical">Technical</Dropdown.Item>
+                <Dropdown.Item eventKey="Non-Technical">Non-Technical</Dropdown.Item>
+                <Dropdown.Item eventKey="Cultural">Cultural</Dropdown.Item>
+                <Dropdown.Item eventKey="Sports">Sports</Dropdown.Item>
+                <Dropdown.Item eventKey="Seminar">Seminar</Dropdown.Item>
+                <Dropdown.Item eventKey="Workshop">Workshop</Dropdown.Item>
+                <Dropdown.Item eventKey="Other">Other</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </div>
         </div>
-    </div>
-    <SpecifiEvent posts={currentData} type="eventlist" />
-    <Pagination totalPosts={featuredEventData.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
-    </section>
+        <SpecifiEvent posts={currentData} type="eventlist" />
+        <Pagination totalPosts={featuredEventData.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+      </section>
     </>
   )
 }
