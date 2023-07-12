@@ -26,8 +26,8 @@ const CreateEvent = () => {
   const [title, setTitle] = useState('');
   const [loc, setLoc] = useState('');
   const [date, setDate] = useState('');
-  const [hour, setHour] = useState('');
-  const [min, setMin] = useState('');
+  // const [hour, setHour] = useState('');
+  // const [min, setMin] = useState('00');
   const [seats, setSeats] = useState('');
   const [desc, setDesc] = useState('');
   const [fb, setFb] = useState('');
@@ -39,7 +39,11 @@ const CreateEvent = () => {
   const [eventsList, setEventsList] = useState([]);
   const [eventName, setEventName] = useState();
   const [price, setPrice] = useState();
+  const [selectedTime, setSelectedTime] = useState('');
 
+  const handleTimeChange = (event) => {
+    setSelectedTime(event.target.value);
+  };
   const handleChange = (selected) => {
     setSelectedOptions(selected);
     console.log(selectedOptions);
@@ -84,8 +88,9 @@ const { isLoading, isSuccess, isError } = useSelector((state) => state.event);
 
     eventData.set('banner', banner);
     eventData.set('date', date);
-    eventData.set('hour', hour);
-    eventData.set('min', min);
+    eventData.set('time', selectedTime);
+    // eventData.set('hour', hour);
+    // eventData.set('min', min);
 
     const selectedValues = selectedOptions.map(selectedOption => selectedOption.value);
     eventData.set('eventType', selectedValues);
@@ -107,7 +112,12 @@ const { isLoading, isSuccess, isError } = useSelector((state) => state.event);
       dispatch(reset());
       toast.error('Event initialisation failed.');
     }
-  });
+  }, [dispatch, isError, isSuccess, navigate]);
+
+useEffect(() => {
+  console.log(selectedTime);
+
+}, [selectedTime]);
 
   const addEv = (e) => {
     e.preventDefault();
@@ -169,12 +179,25 @@ const handleDateChange = (date) => {
         <textarea placeholder='Location' onChange={e => setLoc(e.target.value)} required />
         {/* <input placeholder='Date: dd/mm/yyyy' onChange={e => setDate(e.target.value)} required></input> */}
         <DatePicker selected={date} onChange={handleDateChange} dateFormat='dd-MM-yyyy' placeholderText='Date: dd/mm/yyyy'/>
-        <div className='time'>
+        {/* <div className='time'>
           <label><h5>Time:</h5></label>
           <input placeholder='23' onChange={e => setHour(e.target.value)} className='time-input' required></input>
           <p>:</p>
           <input placeholder='59' onChange={e => setMin(e.target.value)} className='time-input' required></input>
-        </div>
+        </div> */}
+        <div>
+      <label htmlFor="time">Select a time:</label>
+      <input
+        type="time"
+        id="time"
+        value={selectedTime}
+        onChange={handleTimeChange}
+      />
+      <p>Selected time: {selectedTime}</p>
+    </div>
+
+
+
         <div class="ce-file">
           <label>Upload upto 3 images:</label>
           <input type="file" onChange={addImgs} class="custom-file-input" id="customFile" multiple accept='.jpg, .jpeg, .png, .webp, .svg' />

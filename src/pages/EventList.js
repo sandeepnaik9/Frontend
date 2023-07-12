@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Carousel, Dropdown } from 'react-bootstrap'
 import CustomToggle from '../components/CustomToggle'
 import CustomMenu from '../components/CustomMenu'
@@ -10,13 +10,33 @@ import Carousel2 from '../assets/img/images/carousel2.jpeg'
 import Carousel3 from '../assets/img/images/carousel3.jpeg'
 import Carousel4 from '../assets/img/images/carousel4.jpg'
 import { Link } from 'react-router-dom'
+import { getEvents } from '../reduxFeatures/event/eventSlice'
+import Spinner from '../components/Spinner'
+import { useDispatch, useSelector } from 'react-redux'
 
 const EventList = () => {
   const [selectedVal, setSelectedVal] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
 
-  const data = featuredEventData;
+  // const data = featuredEventData;
+
+  const { isLoading, data } = useSelector((state) => state.event)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(getEvents());
+      console.log('Dispatched getEvents');
+  }, [dispatch]);
+
+  useEffect(() => {
+    console.log(data);
+  },[data]);
+
+  if(isLoading){
+    return <Spinner/>
+  }
+
   const handleSelect = (e) => {
     setSelectedVal(e)
   }
@@ -28,6 +48,7 @@ const EventList = () => {
 
   const Images = [Carousel1, Carousel2, Carousel3, Carousel4]
 
+  
   return (
     <>
       <section className='container-fluid p-0'>

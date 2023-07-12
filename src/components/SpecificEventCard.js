@@ -5,23 +5,22 @@ import { Link } from 'react-router-dom'
 
 
 const SpecificEventCard = ({post}) => {
-
-
-
+    // console.log(post._id);
+    const evLink = post.imgs ? `http://localhost:8000/${post.imgs[0]}` : '';
 
     
   return (
     <div className="col-md-4 flex-column card-content">
-    <Link className="card-item btn" to={`/event/${post.id}` } style={{backgroundColor:'#BFDAF7',margin:'20px',borderRadius:"20px",padding:"20px"}}>
+    <Link className="card-item btn" to={`/event/${post._id}`} style={{backgroundColor:'#BFDAF7',margin:'20px',borderRadius:"20px",padding:"20px"}}>
 
     <div style={{height:"300px",borderRadius:"10px"}}>
-        <img src={post.image} style={{height:"100%",width:'100%',objectFit:"cover"}} alt="" />
+        <img src={evLink} style={{height:"100%",width:'100%',objectFit:"cover"}} alt="" />
         </div>
         <div>
-            <h4><strong>{post.title}</strong></h4>
+            <h4><strong>{post.eventTitle}</strong></h4>
         </div>
         <div>
-            {post.presenter}
+            {post.hostname}
         </div>
         <div className="row">
             <div className="d-flex col-md-6" style={{}}>

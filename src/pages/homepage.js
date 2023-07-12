@@ -14,6 +14,9 @@ import bgc6 from '../assets/img/bgc6.jpeg'
 import bgc7 from '../assets/img/bgc7.jpg'
 import featuredEventData from '../data/featuredEventdata'
 import SpecifiEvent from '../components/SpecifiEvent';
+import { useDispatch, useSelector } from 'react-redux';
+import { getEvents } from '../reduxFeatures/event/eventSlice';
+import Spinner from '../components/Spinner';
 
 const Images = [Carousel1, Carousel2, Carousel3, Carousel4]
 const bgc = [bgc1,bgc2,bgc3,bgc4,bgc5,bgc6,bgc7]
@@ -21,9 +24,6 @@ const bgc = [bgc1,bgc2,bgc3,bgc4,bgc5,bgc6,bgc7]
 const Homepage = () => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
-
-
-
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentSlide((currentSlide + 1) % bgc.length);
@@ -31,6 +31,22 @@ const Homepage = () => {
     }, 5000);
     return () => clearInterval(intervalId);
   }, [currentSlide]);
+
+  const { isLoading, data } = useSelector((state) => state.event)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(getEvents());
+      console.log('Dispatched getEvents');
+  }, [dispatch]);
+
+  useEffect(() => {
+    console.log(data);
+  },[data]);
+
+  if(isLoading){
+    return <Spinner/>
+  }
 
   return (<>
     

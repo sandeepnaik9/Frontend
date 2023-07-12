@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import SpecificEventCard from './SpecificEventCard';
-
+// import {useSelector, useDispatch} from 'react-redux';
+// import { getEvents } from '../reduxFeatures/event/eventSlice';
+// import { Spinner } from 'react-bootstrap';
 
 const SpecifiEvent = ({posts,type}) => {
     const [scrollLeft, setScrollLeft] = useState(0);
@@ -15,15 +17,18 @@ const SpecifiEvent = ({posts,type}) => {
     }
   };
 
+
+
   useEffect(()=>{
     if(scrollContainer.current){
         scrollContainer.current.scrollLeft = scrollLeft
     }
   },[scrollLeft])
 
+
   return (
     <div className={type==="eventlist" ?"row d-flex custom-scrollbar":"row d-flex custom-scrollbar flex-nowrap" } ref={scrollContainer} tabIndex="1" onKeyDown={handleKeyDown} style={{overflow:'scroll'}}>
-        {posts.map((post,index) =><SpecificEventCard post={post}/>)}
+        {posts && posts.map((post,index) =><SpecificEventCard post={post}/>)}
         
     </div>
   )

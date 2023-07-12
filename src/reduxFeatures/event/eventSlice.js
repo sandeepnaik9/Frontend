@@ -7,6 +7,7 @@ const api = axios.create({
   });
 
 const initialState = {
+    data: '',
     isLoading: false,
     isSuccess: false,
     isError: false,
@@ -26,11 +27,24 @@ export const addEvent = createAsyncThunk('event/addEv', async(eventData, thunkAP
     }
 }) 
 
+export const getEvents = createAsyncThunk('event/getEvs', async(req, res, thunkAPI) => {
+    try {
+        const response = await api.get('/eventsList');
+        if(response){
+            console.log('getEvents redux successful');
+            return (response.data);
+        }
+    } catch (error) {
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
+        return thunkAPI.rejectWithValue(message);    }
+});
+
 const eventSlice = createSlice({
     name: 'event',
     initialState,
     reducers: {
         reset: (state) => {
+            state.data = ''
             state.isLoading = false
             state.isError = false
             state.isSuccess = false
@@ -44,9 +58,21 @@ const eventSlice = createSlice({
             })
             .addCase(addEvent.fulfilled, (state) => {
                 state.isLoading = false
-                state.isSuccess = true
+                // state.isSuccess = true
             })
             .addCase(addEvent.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+            .addCase(getEvents.pending, (state) => {
+                state.isLoading = true               
+            })
+            .addCase(getEvents.fulfilled, (state, action) => {
+                state.data = action.payload
+                state.isLoading = false
+            })
+            .addCase(getEvents.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload
