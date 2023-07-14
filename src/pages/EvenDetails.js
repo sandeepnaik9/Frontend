@@ -1,61 +1,45 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 // import featuredEventData from '../data/featuredEventdata'
 // import Carousel1 from '../assets/img/images/carousel1.jpeg'
 // import Carousel2 from '../assets/img/images/carousel2.jpeg'
 // import Carousel3 from '../assets/img/images/carousel3.jpeg'
 // import Carousel4 from '../assets/img/images/carousel4.jpg'
-import { Carousel } from 'react-bootstrap'
+import { Carousel, Spinner } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar } from '@fortawesome/free-regular-svg-icons'
 import { faArrowRight, faClock, faLink, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faGoogle, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
-// import { useDispatch, useSelector } from 'react-redux'
-// import { getEvent } from '../reduxFeatures/event/eventSlice'
-// import Spinner from '../components/Spinner'
+import { useDispatch, useSelector } from 'react-redux'
+import { getEvent } from '../reduxFeatures/event/eventSlice'
 
 
 const EvenDetails = () => {
-    const { id } = useParams()
-    const [data2, setData2] = useState('');
+    const { id } = useParams();
 
-    // const dispatch = useDispatch();
-
-    // useEffect(() => {
-    //     console.log(id);
-    //     dispatch(getEvent(id));
-    //     console.log('Dispatched getEvents');
-    // }, [dispatch, id]);
-
-    // const { isLoading, data2 } = useSelector((state) => state.event);
-    
-    // useEffect(() => {
-    //   console.log(data2);
-    // },[data2]);
-
-    // if (isLoading) {
-    //     return <Spinner />
-    // }
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/events/getEvent/${id}`).then(response => {
-            response.json().then(evInfo => { setData2(evInfo)}
-            )
-        })
-    }, [id]);
+        console.log(id);
+        dispatch(getEvent(id));
+        console.log('Dispatched getEvents');
+    }, [dispatch, id]);
 
-    // const eventData = data.filter(post=>post._id === parseInt(id))[0]
+    const {  data2 } = useSelector((state) => state.event);
+    
+    useEffect(() => {
+      console.log(data2);
+    }, [data2]);
+
     const eventData = data2;
 
     console.log(eventData, id);
-    const Images = eventData?.imgs?.map(img => `http://localhost:8000/${img}`) || ''
+    const Images = eventData?.imgs?.map(img => `http://localhost:8000/${img}`);
 
     if(!eventData){
-        return '';
+        return <Spinner/>
     }
-    // useEffect(()=>{
-    //     setData()
-    // },[id])
+ 
     return (
         <div>
             <section style={{ width: '100%', height: "60vh", display: 'flex' }}>
