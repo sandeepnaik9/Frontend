@@ -45,11 +45,7 @@ const EvenDetails = () => {
     }, [id]);
 
     // const eventData = data.filter(post=>post._id === parseInt(id))[0]
-<<<<<<< HEAD
-    const eventData = data.filter(post => post.id === id)[0]
-=======
     const eventData = data2;
->>>>>>> 56e12835ac1bcbed72f38e7f01d645e0964084ae
 
     console.log(eventData, id);
     const Images = eventData?.imgs?.map(img => `http://localhost:8000/${img}`) || ''
