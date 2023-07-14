@@ -21,7 +21,7 @@ const EventList = () => {
 
   // const data = featuredEventData;
 
-  const { isLoading, data } = useSelector((state) => state.event)
+  const { isLoading, data1 } = useSelector((state) => state.event)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,8 +30,8 @@ const EventList = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    console.log(data);
-  },[data]);
+    console.log(data1);
+  },[data1]);
 
   if(isLoading){
     return <Spinner/>
@@ -44,7 +44,7 @@ const EventList = () => {
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
 
-  const currentData = data.slice(firstPostIndex, lastPostIndex)
+  const currentData = data1.slice(firstPostIndex, lastPostIndex)
 
   const Images = [Carousel1, Carousel2, Carousel3, Carousel4]
 
