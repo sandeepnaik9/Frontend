@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Frontend/static/css/main.e61d3021.css",
-    "main.js": "/Frontend/static/js/main.b761ff04.js",
+    "main.js": "/Frontend/static/js/main.6f5cca0b.js",
     "static/media/Aboutus.png": "/Frontend/static/media/Aboutus.2e3379760a408890a56d.png",
     "static/media/bgc5.jpeg": "/Frontend/static/media/bgc5.b3328ba85c3796806e66.jpeg",
     "static/media/carousel2.jpeg": "/Frontend/static/media/carousel2.1220aa84795b05f8f24a.jpeg",
@@ -20,10 +20,10 @@
     "static/media/bgc2.jpeg": "/Frontend/static/media/bgc2.d2956af9d69ac91844ac.jpeg",
     "index.html": "/Frontend/index.html",
     "main.e61d3021.css.map": "/Frontend/static/css/main.e61d3021.css.map",
-    "main.b761ff04.js.map": "/Frontend/static/js/main.b761ff04.js.map"
+    "main.6f5cca0b.js.map": "/Frontend/static/js/main.6f5cca0b.js.map"
   },
   "entrypoints": [
     "static/css/main.e61d3021.css",
-    "static/js/main.b761ff04.js"
+    "static/js/main.6f5cca0b.js"
   ]
 }
