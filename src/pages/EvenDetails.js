@@ -37,7 +37,7 @@ const EvenDetails = () => {
     }
 
     // const eventData = data.filter(post=>post._id === parseInt(id))[0]
-    const eventData = data.filter(post => post._id === id)[0]
+    const eventData = data.filter(post => post.id === id)[0]
 
     console.log(eventData, id);
 
