@@ -1,53 +1,65 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 // import featuredEventData from '../data/featuredEventdata'
-import Carousel1 from '../assets/img/images/carousel1.jpeg'
-import Carousel2 from '../assets/img/images/carousel2.jpeg'
-import Carousel3 from '../assets/img/images/carousel3.jpeg'
-import Carousel4 from '../assets/img/images/carousel4.jpg'
+// import Carousel1 from '../assets/img/images/carousel1.jpeg'
+// import Carousel2 from '../assets/img/images/carousel2.jpeg'
+// import Carousel3 from '../assets/img/images/carousel3.jpeg'
+// import Carousel4 from '../assets/img/images/carousel4.jpg'
 import { Carousel } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCalendar } from '@fortawesome/free-regular-svg-icons'
 import { faArrowRight, faClock, faLink, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { faFacebook, faGoogle, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { useDispatch, useSelector } from 'react-redux'
-import { getEvents } from '../reduxFeatures/event/eventSlice'
-import Spinner from '../components/Spinner'
+// import { useDispatch, useSelector } from 'react-redux'
+// import { getEvent } from '../reduxFeatures/event/eventSlice'
+// import Spinner from '../components/Spinner'
 
 
 const EvenDetails = () => {
     const { id } = useParams()
+    const [data2, setData2] = useState('');
 
-    const Images = [Carousel1, Carousel2, Carousel3, Carousel4]
-
-    const { isLoading, data } = useSelector((state) => state.event)
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getEvents());
-        console.log('Dispatched getEvents');
-    }, [dispatch]);
+    // const dispatch = useDispatch();
 
     // useEffect(() => {
-    //   console.log(data);
-    // },[data]);
+    //     console.log(id);
+    //     dispatch(getEvent(id));
+    //     console.log('Dispatched getEvents');
+    // }, [dispatch, id]);
 
-    if (isLoading) {
-        return <Spinner />
-    }
+    // const { isLoading, data2 } = useSelector((state) => state.event);
+    
+    // useEffect(() => {
+    //   console.log(data2);
+    // },[data2]);
+
+    // if (isLoading) {
+    //     return <Spinner />
+    // }
+
+    useEffect(() => {
+        fetch(`http://localhost:8000/api/events/getEvent/${id}`).then(response => {
+            response.json().then(evInfo => { setData2(evInfo)}
+            )
+        })
+    }, [id]);
 
     // const eventData = data.filter(post=>post._id === parseInt(id))[0]
-    const eventData = data.filter(post => post._id === id)[0]
+    const eventData = data2;
 
     console.log(eventData, id);
+    const Images = eventData?.imgs?.map(img => `http://localhost:8000/${img}`) || ''
 
+    if(!eventData){
+        return '';
+    }
     // useEffect(()=>{
     //     setData()
     // },[id])
     return (
         <div>
             <section style={{ width: '100%', height: "60vh", display: 'flex' }}>
-                {eventData ? <img src={`http://localhost:8000/${eventData.imgs[0]}`} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="EventBanner" /> : ""}
+                {eventData ? <img src={`http://localhost:8000/${eventData.banner}`} style={{ objectFit: 'cover', width: '100%', height: '100%' }} alt="EventBanner" /> : ""}
             </section>
             <section className="container-fluid mt-3">
                 <h5>Featured Event</h5>
@@ -55,7 +67,7 @@ const EvenDetails = () => {
                     <div className="col-md-7">
                         <div>
                             <section className="container-fluid" id="upcomingevents">
-                                <h3 className="my-5">Internal <strong>Hackathon 2023 </strong></h3>
+                                <h1 className="my-5"><strong>{eventData.eventTitle}</strong></h1>
                                 <div className="my-4" style={{ height: "60vh" }}>
 
                                     <Carousel variant='dark' className='rounded-0 carouselUpcoming' style={{ height: '100vh' }} autoPlay={true}
@@ -97,7 +109,7 @@ const EvenDetails = () => {
                                     <div>
                                         <p className="p-0 m-0">Event Time</p>
                                         <strong>
-                                            {eventData.hour} : {eventData.min || '00'}
+                                            {eventData.time || '0'}
                                         </strong>
                                     </div>
                                 </div>
@@ -219,7 +231,7 @@ const EvenDetails = () => {
                         </h3>
                         <div className="justify-content-center p-5" style={{ backgroundColor: "#D9D9D9", marginBottom: "1.5px" }}>
 
-                            {eventData.socials.twitter ? (
+                            {eventData.socials.facebook ? (
                                 <div className="d-flex m-4 align-items-center">
                                     <FontAwesomeIcon icon={faFacebook} size={'2xl'} />
                                     <div className="ms-3">
@@ -243,7 +255,7 @@ const EvenDetails = () => {
                                     <div>
                                         <FontAwesomeIcon icon={faGoogle} size={'2xl'} />
                                         <div className="ms-3">
-                                            <div>{eventData.socials.mail}</div>
+                                            <div>{eventData.hostemail}</div>
                                         </div>
                                     </div>
                                 </div>

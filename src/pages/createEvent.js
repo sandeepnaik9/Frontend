@@ -46,7 +46,6 @@ const CreateEvent = () => {
   };
   const handleChange = (selected) => {
     setSelectedOptions(selected);
-    console.log(selectedOptions);
   };
 
   const addBanner = (e) => {
@@ -59,8 +58,6 @@ const CreateEvent = () => {
     const files = Array.from(e.target.files);
     setImgs(files);
   }
-
-  
 
 
 const { isLoading, isSuccess, isError } = useSelector((state) => state.event);
@@ -83,9 +80,9 @@ const { isLoading, isSuccess, isError } = useSelector((state) => state.event);
     eventData.set('desc', desc);
 
     for (let i = 0; i < imgs.length; i++) {
-      eventData.set('imgs', imgs[i]);
+      eventData.append('imgs', imgs[i]);
     }
-
+  
     eventData.set('banner', banner);
     eventData.set('date', date);
     eventData.set('time', selectedTime);
@@ -114,10 +111,6 @@ const { isLoading, isSuccess, isError } = useSelector((state) => state.event);
     }
   }, [dispatch, isError, isSuccess, navigate]);
 
-useEffect(() => {
-  console.log(selectedTime);
-
-}, [selectedTime]);
 
   const addEv = (e) => {
     e.preventDefault();
@@ -155,7 +148,7 @@ const handleDateChange = (date) => {
     <div className='ce-main-div'>
       <form onSubmit={createEvt}>
         <h3>Personal <strong>Details</strong></h3>
-        <input placeholder='Name' onChange={e => setName(e.target.value)} required></input>
+        <input placeholder='Host Name' onChange={e => setName(e.target.value)} required></input>
         <input placeholder='Email' onChange={e => setEmail(e.target.value)} required></input>
         <input placeholder='Phone Number' onChange={e => setPhone(e.target.value)}></input>
         <input placeholder='Company/College/Organization' onChange={e => setOrg(e.target.value)} required></input>
