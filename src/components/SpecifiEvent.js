@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import SpecificEventCard from './SpecificEventCard';
-// import {useSelector, useDispatch} from 'react-redux';
-// import { getEvents } from '../reduxFeatures/event/eventSlice';
-// import { Spinner } from 'react-bootstrap';
 
-const SpecifiEvent = ({posts,type}) => {
+
+const SpecifiEvent = ({posts, type}) => {
     const [scrollLeft, setScrollLeft] = useState(0);
     const scrollContainer = useRef()
   const handleKeyDown = (event) => {
@@ -16,8 +14,6 @@ const SpecifiEvent = ({posts,type}) => {
       setScrollLeft((prevScrollLeft) => prevScrollLeft + scrollAmount); // Scroll right
     }
   };
-
-
 
   useEffect(()=>{
     if(scrollContainer.current){

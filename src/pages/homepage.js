@@ -32,8 +32,11 @@ const Homepage = () => {
     return () => clearInterval(intervalId);
   }, [currentSlide]);
 
+  
+
   const { isLoading, data } = useSelector((state) => state.event)
   const dispatch = useDispatch();
+
 
   useEffect(() => {
       dispatch(getEvents());

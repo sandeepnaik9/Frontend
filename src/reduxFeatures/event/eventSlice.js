@@ -8,6 +8,7 @@ const api = axios.create({
 
 const initialState = {
     data: '',
+    data2: '',
     isLoading: false,
     isSuccess: false,
     isError: false,
@@ -32,11 +33,26 @@ export const getEvents = createAsyncThunk('event/getEvs', async(req, res, thunkA
         const response = await api.get('/eventsList');
         if(response){
             console.log('getEvents redux successful');
+            // window.location.reload(true);
             return (response.data);
         }
     } catch (error) {
         const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString();
         return thunkAPI.rejectWithValue(message);    }
+});
+
+export const getEvent = createAsyncThunk('event/getEvent', async(payload, thunkApi) => {
+    const {id} = payload;
+    try {
+        const response = await api.get(`/getEvent/${id}`);
+        if(response){
+            console.log('getEvent redux successful', response.data);
+            window.location.reload(true);
+            return (response.data);
+        }
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 const eventSlice = createSlice({
@@ -45,6 +61,7 @@ const eventSlice = createSlice({
     reducers: {
         reset: (state) => {
             state.data = ''
+            state.data2 = ''
             state.isLoading = false
             state.isError = false
             state.isSuccess = false
@@ -58,7 +75,7 @@ const eventSlice = createSlice({
             })
             .addCase(addEvent.fulfilled, (state) => {
                 state.isLoading = false
-                // state.isSuccess = true
+                state.isSuccess = true
             })
             .addCase(addEvent.rejected, (state, action) => {
                 state.isLoading = false
@@ -73,6 +90,18 @@ const eventSlice = createSlice({
                 state.isLoading = false
             })
             .addCase(getEvents.rejected, (state, action) => {
+                state.isLoading = false
+                state.isError = true
+                state.message = action.payload
+            })
+            .addCase(getEvent.pending, (state) => {
+                state.isLoading = true               
+            })
+            .addCase(getEvent.fulfilled, (state, action) => {
+                state.data2 = action.payload
+                state.isLoading = false
+            })
+            .addCase(getEvent.rejected, (state, action) => {
                 state.isLoading = false
                 state.isError = true
                 state.message = action.payload
