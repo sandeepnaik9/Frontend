@@ -4,8 +4,8 @@ import CLICKFEST from '../assets/img/images/clickfest.jpeg'
 import ESUMMIT from '../assets/img/images/esummit.jpeg'
 
 const featuredEventData = [
-    {
-        id:1,
+{
+       
         hostemail: "",
         company:"",
         imgs:"",
