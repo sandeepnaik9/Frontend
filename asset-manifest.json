@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Frontend/static/css/main.e61d3021.css",
-    "main.js": "/Frontend/static/js/main.cdc042aa.js",
+    "main.css": "/Frontend/static/css/main.dfc26c1a.css",
+    "main.js": "/Frontend/static/js/main.0800fb06.js",
     "static/media/Aboutus.png": "/Frontend/static/media/Aboutus.2e3379760a408890a56d.png",
     "static/media/bgc5.jpeg": "/Frontend/static/media/bgc5.b3328ba85c3796806e66.jpeg",
     "static/media/carousel2.jpeg": "/Frontend/static/media/carousel2.1220aa84795b05f8f24a.jpeg",
@@ -19,11 +19,11 @@
     "static/media/bgc7.jpg": "/Frontend/static/media/bgc7.cdbcd14c39b6e56b1f45.jpg",
     "static/media/bgc2.jpeg": "/Frontend/static/media/bgc2.d2956af9d69ac91844ac.jpeg",
     "index.html": "/Frontend/index.html",
-    "main.e61d3021.css.map": "/Frontend/static/css/main.e61d3021.css.map",
-    "main.cdc042aa.js.map": "/Frontend/static/js/main.cdc042aa.js.map"
+    "main.dfc26c1a.css.map": "/Frontend/static/css/main.dfc26c1a.css.map",
+    "main.0800fb06.js.map": "/Frontend/static/js/main.0800fb06.js.map"
   },
   "entrypoints": [
-    "static/css/main.e61d3021.css",
-    "static/js/main.cdc042aa.js"
+    "static/css/main.dfc26c1a.css",
+    "static/js/main.0800fb06.js"
   ]
 }
