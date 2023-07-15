@@ -38,7 +38,7 @@ const ProfileModal = (props) => {
     
     return (
 
-        <div className="custom-modal">
+        <div className="custom-modal slide-in">
        <Login onClose={closeModal} showLogin = {showLogin} setShowLogin = {setShowLogin} onRegClick={onRegClick} onFpClick={onFpClick} /> 
        <Register onClose={closeModal} showRegister = {showRegister} setShowRegister={setShowRegister} setShowLogin = {setShowLogin} /> 
        <ForgetPass onClose={closeModal} showFp = {showFp} setShowFp={setShowFp} setShowLogin = {setShowLogin}/>

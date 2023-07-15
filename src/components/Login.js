@@ -73,7 +73,7 @@ const Login = (props) => {
         return <Spinner/>
     }
     return(
-    <div className="custom-modal-content" >
+    <div className="custom-modal-content">
     <div className="custom-modal-header">
         <div className="heading" style={{ color: 'black', display: 'inline' }} >Sign in</div>
         <button onClick={props.onClose} ref={closeButton}>X</button>

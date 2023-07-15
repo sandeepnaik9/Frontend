@@ -31,6 +31,7 @@ function Navbar() {
 
   // console.log(user)
   const path = useLocation().pathname;
+  const [flag, setFlag] = useState(false);
   const [navStyle, setNavstyle] = useState();
   const [classN, setClassN] = useState();
   const [isOpen, setIsOpen] = useState(false);
@@ -88,6 +89,8 @@ function Navbar() {
 
   let profMenu = document.getElementById("profMenu")
   const toggleProfMenu = () => {
+    setFlag(!flag);
+    console.log(flag);
     profMenu.classList.toggle("open-prof-menu")
   }
 
@@ -120,7 +123,7 @@ function Navbar() {
         </Link>
         {
           user ? (<>
-            <FontAwesomeIcon icon={faUser} id='prof-menu-btn' onClick={toggleProfMenu} user={user} className='nav-icon' />
+          {flag ? <FontAwesomeIcon icon={faTimes} onClick={toggleProfMenu} className='nav-icon' id='prof-menu-btn'/> : <FontAwesomeIcon icon={faUser} id='prof-menu-btn' onClick={toggleProfMenu} className='nav-icon' />}
             <div className='prof-menu-wrap' id='profMenu'>
               <div className='prof-menu'>
                 <div className='prof-menu-user-info'>
