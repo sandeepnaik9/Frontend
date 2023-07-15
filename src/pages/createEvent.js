@@ -26,8 +26,6 @@ const CreateEvent = () => {
   const [title, setTitle] = useState('');
   const [loc, setLoc] = useState('');
   const [date, setDate] = useState('');
-  // const [hour, setHour] = useState('');
-  // const [min, setMin] = useState('00');
   const [seats, setSeats] = useState('');
   const [desc, setDesc] = useState('');
   const [fb, setFb] = useState('');
@@ -41,8 +39,10 @@ const CreateEvent = () => {
   const [price, setPrice] = useState();
   const [selectedTime, setSelectedTime] = useState('');
 
-  const handleTimeChange = (event) => {
-    setSelectedTime(event.target.value);
+const currentDate = new Date();
+
+  const handleTimeChange = (e) => {
+    setSelectedTime(e.target.value);
   };
   const handleChange = (selected) => {
     setSelectedOptions(selected);
@@ -84,10 +84,14 @@ const { isLoading, isSuccess, isError } = useSelector((state) => state.event);
     }
   
     eventData.set('banner', banner);
-    eventData.set('date', date);
+    const selectedDate = date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+    // console.log(selectedDate);
+    eventData.set('date', selectedDate);
     eventData.set('time', selectedTime);
-    // eventData.set('hour', hour);
-    // eventData.set('min', min);
 
     const selectedValues = selectedOptions.map(selectedOption => selectedOption.value);
     eventData.set('eventType', selectedValues);
@@ -133,12 +137,9 @@ const handleDateChange = (date) => {
   setDate(date);
 }
 
-
-
   useEffect(() => {
-    console.log(selectedOptions);
     console.log(eventsList);
-  }, [selectedOptions, eventsList]);
+  }, [date, eventsList]);
 
   if(isLoading){
     return <Spinner/>;
@@ -159,7 +160,6 @@ const handleDateChange = (date) => {
         <textarea placeholder='Description' onChange={e => setDesc(e.target.value)} maxLength={150} required></textarea>
 
         <Form.Group>
-          {/* <Form.Label>Event type</Form.Label> */}
           <Select
             isMulti
             options={options}
@@ -170,14 +170,8 @@ const handleDateChange = (date) => {
         </Form.Group>
 
         <textarea placeholder='Location' onChange={e => setLoc(e.target.value)} required />
-        {/* <input placeholder='Date: dd/mm/yyyy' onChange={e => setDate(e.target.value)} required></input> */}
-        <DatePicker selected={date} onChange={handleDateChange} dateFormat='dd-MM-yyyy' placeholderText='Date: dd/mm/yyyy'/>
-        {/* <div className='time'>
-          <label><h5>Time:</h5></label>
-          <input placeholder='23' onChange={e => setHour(e.target.value)} className='time-input' required></input>
-          <p>:</p>
-          <input placeholder='59' onChange={e => setMin(e.target.value)} className='time-input' required></input>
-        </div> */}
+        <DatePicker selected={date} onChange={handleDateChange} dateFormat='dd-MM-yyyy' minDate={currentDate} placeholderText='Date: dd/mm/yyyy'/>
+        
         <div>
       <label htmlFor="time">Select a time:</label>
       <input
@@ -197,7 +191,7 @@ const handleDateChange = (date) => {
         </div>
         <div class="ce-file">
           <label>Upload event banner:</label>
-          <input type="file" onChange={addBanner} class="custom-file-input" id="customFile" required />
+          <input type="file" onChange={addBanner} class="custom-file-input" id="customFile" accept='.jpg, .jpeg, .png, .webp, .svg' required />
         </div>
         <input placeholder='Number of seats' onChange={e => setSeats(e.target.value)} type='number' min={0} max={99999999}></input>
         <input placeholder='Facebook handle' onChange={e => setFb(e.target.value)}></input>
@@ -217,6 +211,7 @@ const handleDateChange = (date) => {
           placeholder="Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
+          min={0} max={99999}
         />
         <button className='btn btn-primary' onClick={addEv} style={{ backgroundColor: "#7cb7f6", border: "none", color: "black" }}>
           Add Sub-event

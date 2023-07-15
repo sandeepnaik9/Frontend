@@ -21,7 +21,9 @@ const EventList = () => {
 
   // const data = featuredEventData;
 
-  const { isLoading, data1 } = useSelector((state) => state.event)
+  const { isLoading, data1 } = useSelector((state) => state.event);
+  const { user } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -76,9 +78,11 @@ const EventList = () => {
         <div className="heading">EVENTS <span className="subheading">LIST</span></div>
         <div style={{ display: 'flex', justifyContent: 'end' }}>
           <div className="d-flex justify-content-between">
-            <Link className="btn rounded-pill" to={'/createevent'} style={{ backgroundColor: '#BFDAF7', fontWeight: 'bold' }}>
+            {
+              user.isHost ? (<Link className="btn rounded-pill" to={'/createevent'} style={{ backgroundColor: '#BFDAF7', fontWeight: 'bold' }}>
               + Create Event
-            </Link>
+            </Link>) : ''
+            }
             <Dropdown onSelect={handleSelect}>
               <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
                 {selectedVal ? selectedVal : 'Pick an option'}
