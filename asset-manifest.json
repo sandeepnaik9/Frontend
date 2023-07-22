@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/Frontend/static/css/main.dfc26c1a.css",
+    "main.js": "/Frontend/static/js/main.0800fb06.js",
+    "static/media/Aboutus.png": "/Frontend/static/media/Aboutus.2e3379760a408890a56d.png",
+    "static/media/bgc5.jpeg": "/Frontend/static/media/bgc5.b3328ba85c3796806e66.jpeg",
+    "static/media/carousel2.jpeg": "/Frontend/static/media/carousel2.1220aa84795b05f8f24a.jpeg",
+    "static/media/bgc4.jpeg": "/Frontend/static/media/bgc4.37f73d418d916144989d.jpeg",
+    "static/media/clickfest.jpeg": "/Frontend/static/media/clickfest.fd8f7db352f30902eac1.jpeg",
+    "static/media/bgc3.jpeg": "/Frontend/static/media/bgc3.bb64999cbbba8042517c.jpeg",
+    "static/media/technovanza.jpeg": "/Frontend/static/media/technovanza.919c1e7d9e76b5c41fc9.jpeg",
+    "static/media/bgc6.jpeg": "/Frontend/static/media/bgc6.cab71edcd87f9f498036.jpeg",
+    "static/media/bgc1.jpeg": "/Frontend/static/media/bgc1.5cedbd9fb3b538a64edd.jpeg",
+    "static/media/carousel3.jpeg": "/Frontend/static/media/carousel3.a6e8b913c84b7d0920d3.jpeg",
+    "static/media/esummit.jpeg": "/Frontend/static/media/esummit.a6e8b913c84b7d0920d3.jpeg",
+    "static/media/carousel4.jpg": "/Frontend/static/media/carousel4.618f8c8db789f9dc6f0f.jpg",
+    "static/media/carousel1.jpeg": "/Frontend/static/media/carousel1.7b025ee5ccd0a67bdbc6.jpeg",
+    "static/media/internalhackathon.jpeg": "/Frontend/static/media/internalhackathon.62e917a8d67a38d2deab.jpeg",
+    "static/media/bgc7.jpg": "/Frontend/static/media/bgc7.cdbcd14c39b6e56b1f45.jpg",
+    "static/media/bgc2.jpeg": "/Frontend/static/media/bgc2.d2956af9d69ac91844ac.jpeg",
+    "index.html": "/Frontend/index.html",
+    "main.dfc26c1a.css.map": "/Frontend/static/css/main.dfc26c1a.css.map",
+    "main.0800fb06.js.map": "/Frontend/static/js/main.0800fb06.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dfc26c1a.css",
+    "static/js/main.0800fb06.js"
+  ]
+}
